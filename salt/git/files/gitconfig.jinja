@@ -3,11 +3,7 @@
 [user]
     name = {{ name }}
     email = {{ email }}
-[alias]
-    br = branch
-    cm = commit -m
-    d = diff
-    s = status -s
+
 [alias]
   a = !git add . && git status
   aa = !git add . && git add -u . && git status
@@ -32,6 +28,9 @@
   master = checkout master
   s = status -s
   spull = !git stash && git pull && git stash pop
+
+[init]
+  defaultBranch = main
 [core]
   autocrlf = input
 [pull]
