@@ -54,7 +54,17 @@ sudo salt-call --local test.versions
 
 ## Setup the project
 
-> **TODO:** pending documentation to download the project  
+Clone the project:
+
+```bash
+# SSH
+git clone git@github.com:rcmoutinho/salt-local-dev.git
+
+# HTTPS
+git clone https://github.com/rcmoutinho/salt-local-dev.git
+```
+
+> NOTE: You can also fork this project before to allow you to push all your custom changes to your project.
 
 The Masterless approach means that instead of connecting to a Salt master to collect files and pillars _(default configuration behavior with minion configuration `file_client: remote`)_, we will only rely on the local files removing the need of a minion daemon. This means we will only use the [salt-call command line](https://docs.saltproject.io/en/latest/ref/cli/salt-call.html).
 
