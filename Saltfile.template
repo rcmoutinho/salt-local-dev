@@ -1,0 +1,9 @@
+# About Saltfile: https://docs.saltproject.io/salt/install-guide/en/latest/topics/configure-master-minion.html#saltfile
+
+# Learn more about salt-call arguments: https://docs.saltproject.io/en/latest/ref/cli/salt-call.html
+salt-call:
+  local: True # mandatory for masterless configuration
+  log_level: warning # options: all, garbage, trace, debug, info, warning, error, quiet 
+  state_output: none # options: full, terse, mixed, changes, filter, none
+  file_root: /path/to/my/project/salt # example: /home/myusername/salt-local-dev/salt
+  pillar_root: /path/to/my/project/pillar # example: /home/myusername/salt-local-dev/pillar

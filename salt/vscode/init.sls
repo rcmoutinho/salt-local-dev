@@ -1,0 +1,4 @@
+include:
+  - .install
+  - .extensions
+  - .config

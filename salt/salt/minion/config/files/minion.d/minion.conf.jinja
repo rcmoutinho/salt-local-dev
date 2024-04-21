@@ -1,0 +1,4 @@
+file_roots:
+  {{ salt.config.get('file_roots') | dict_to_sls_yaml_params | indent(2) }}
+pillar_roots:
+  {{ salt.config.get('pillar_roots') | dict_to_sls_yaml_params | indent(2) }}

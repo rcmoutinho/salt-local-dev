@@ -1,0 +1,40 @@
+{{ salt['slsutil.banner']() }}
+
+[user]
+    name = {{ name }}
+    email = {{ email }}
+[alias]
+    br = branch
+    cm = commit -m
+    d = diff
+    s = status -s
+[alias]
+  a = !git add . && git status
+  aa = !git add . && git add -u . && git status
+  ac = !git add . && git commit
+  acm = !git add . && git commit -m
+  au = !git add -u . && git status
+  br = branch
+  c = commit
+  ca = commit --amend --no-edit
+  cae = commit --amend
+  cm = commit -m
+  d = diff
+  dev = checkout dev
+  develop = checkout develop
+  dw = diff --word-diff
+  dwc = diff --word-diff --cached
+  l = log --graph --all --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+  lg = log --color --graph --pretty=format:'%C(bold white)%h%Creset -%C(bold green)%d%Creset %s %C(bold green)(%cr)%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  ll = log --stat --abbrev-commit
+  llg = log --color --graph --pretty=format:'%C(bold white)%H %d%Creset%n%s%n%+b%C(bold blue)%an <%ae>%Creset %C(bold green)%cr (%ci)' --abbrev-commit
+  main = checkout main
+  master = checkout master
+  s = status -s
+  spull = !git stash && git pull && git stash pop
+[core]
+  autocrlf = input
+[pull]
+  rebase = true
+[rerere]
+  enabled = true
