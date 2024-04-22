@@ -1,2 +1,3 @@
 include:
+  - .system
   - .packages

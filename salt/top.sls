@@ -1,8 +1,10 @@
 base:
-  G@kernel:Linux:
+  '*':
     - salt.minion
     - utils
-    - sudoers
     - git
     - vscode
     - tools
+
+  G@kernel:Linux:
+    - sudoers
