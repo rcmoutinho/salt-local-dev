@@ -9,3 +9,4 @@ base:
   G@kernel:Linux:
     - sudoers
     - gdm
+    - grub
