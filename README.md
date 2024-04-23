@@ -90,7 +90,8 @@ There is no point in rewriting the excellent [salt documentation about GPG](http
 sudo mkdir -p /etc/salt/gpgkeys
 sudo chmod 0700 /etc/salt/gpgkeys
 
-# It is an interactive command - make sure **NOT to add a password**, considering salt does not support it
+# It is an interactive command
+# Make sure **NOT to add a password**, considering salt does not support it
 sudo gpg --homedir /etc/salt/gpgkeys --gen-key
 ```
 
