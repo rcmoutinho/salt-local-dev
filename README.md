@@ -1,7 +1,9 @@
 # Salt Local Development <!-- omit in toc -->
 
-This project aims to use [Salt Masterless](https://docs.saltproject.io/en/latest/topics/tutorials/quickstart.html) approach to configure and automate everything we need for the local environment without the need of master and minion daemons/services.
-
+- [About](#about)
+  - [Linux](#linux)
+  - [Windows](#windows)
+  - [macOS](#macos)
 - [Install Salt](#install-salt)
 - [Setup the project](#setup-the-project)
   - [Configure personal data](#configure-personal-data)
@@ -11,6 +13,43 @@ This project aims to use [Salt Masterless](https://docs.saltproject.io/en/latest
 - [Documentation](#documentation)
 - [Support](#support)
 - [License](#license)
+
+## About
+
+This project aims to use [Salt Masterless](https://docs.saltproject.io/en/latest/topics/tutorials/quickstart.html) approach to configure and automate everything we need for the local environment without the need for master and minion daemons/services. We could reach similar goals using tools like [Ansible](https://www.ansible.com) or other tools. Feel free to get inspired if you want to take a different route.
+
+<details>
+  <summary>Quick overview of all automated installs <i>(click to expand)</i></summary>
+
+  ### Linux
+  - GIT and its configuration
+  - Visual Studio Code and extensions
+  - General Tools
+    - 1password
+    - Shutter _(for screenshots)_
+  - General packages
+    - tree
+    - curl
+  - Extra
+    - GDM (GNOME Display Manager) and its configurations
+    - GRUB Customizer
+  - Documentation about few manual configurations
+  
+  Coming soon:
+  - Docker
+  - Vagrant
+  - Virtualbox
+  - ZSH + configs + plugins
+  - Python + Ruff + UV
+  - ...
+  
+  ### Windows
+  _Coming soon ( as I have time :smile: )_
+
+  ### macOS
+  _Coming soon ( as I have time :smile: )_
+
+</details>
 
 ## Install Salt
 
