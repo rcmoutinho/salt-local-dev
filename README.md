@@ -30,7 +30,7 @@ This project aims to use [Salt Masterless](https://docs.saltproject.io/en/latest
   - Extra
     - GDM (GNOME Display Manager) and its configurations
     - GRUB Customizer
-  - Documentation about few manual configurations
+  - Documentation about a few manual configurations
   
   Coming soon:
   - Docker
