@@ -1,9 +1,6 @@
 # Salt Local Development <!-- omit in toc -->
 
 - [About](#about)
-  - [Linux](#linux)
-  - [Windows](#windows)
-  - [macOS](#macos)
 - [Install Salt](#install-salt)
 - [Setup the project](#setup-the-project)
   - [Configure personal data](#configure-personal-data)
@@ -21,7 +18,7 @@ This project aims to use [Salt Masterless](https://docs.saltproject.io/en/latest
 <details>
   <summary>Quick overview of all automated installs <i>(click to expand)</i></summary>
 
-  ### Linux
+  ### Linux <!-- omit in toc -->
   - GIT and its configuration
   - Visual Studio Code and extensions
   - General Tools
@@ -43,10 +40,10 @@ This project aims to use [Salt Masterless](https://docs.saltproject.io/en/latest
   - Python + Ruff + UV
   - ...
   
-  ### Windows
+  ### Windows <!-- omit in toc -->
   _Coming soon ( as I have time :smile: )_
 
-  ### macOS
+  ### macOS <!-- omit in toc -->
   _Coming soon ( as I have time :smile: )_
 
 </details>
