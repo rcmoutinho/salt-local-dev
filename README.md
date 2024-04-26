@@ -13,7 +13,11 @@
 
 ## About
 
-This project aims to use [Salt Masterless](https://docs.saltproject.io/en/latest/topics/tutorials/quickstart.html) approach to configure and automate everything we need for the local environment without the need for master and minion daemons/services. We could reach similar goals using tools like [Ansible](https://www.ansible.com) or other tools. Feel free to get inspired if you want to take a different route.
+Imagine having a fresh environment to configure every time. It could be a new computer, a PC gamer on top of your notebook, formatting your disk, or even creating a dual boot to play with Linux. You need to think about all the cool stuff you installed and configured in your primary machine to replicate and be up to speed on the other environment. Boring... right?
+
+This project aims to help you (and me) map all the most important and common things we need as developers so we can quickly get up to speed using the most efficient environment we have.
+
+The project uses a [Salt Masterless](https://docs.saltproject.io/en/latest/topics/tutorials/quickstart.html) approach to configure and automate everything we need for the local environment without the need for master and minion daemons/services. We could reach similar goals using tools like [Ansible](https://www.ansible.com) or other tools or even installing master and minion services to automate more targets that are not just your machine. Feel free to get inspired if you want to take a different route.
 
 <details>
   <summary>Quick overview of all automated installs <i>(click to expand)</i></summary>
