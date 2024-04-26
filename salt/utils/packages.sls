@@ -5,5 +5,6 @@ utils-packages-install:
     - pkgs:
       - tree
       - curl
+      - vim
 
 {% endif %}
