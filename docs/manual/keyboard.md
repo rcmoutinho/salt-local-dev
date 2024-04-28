@@ -17,7 +17,7 @@ The `English (US, intl., with dead keys)` option might be everything you need, b
 - <kbd>Alt Gr</kbd> + <kbd>'</kbd> = <kbd>'</kbd> _(same as <kbd>'</kbd> + <kbd>space</kbd> = <kbd>'</kbd>)_
 - <kbd>Alt Gr</kbd> + <kbd>"</kbd> = <kbd>"</kbd> _(same as <kbd>"</kbd> + <kbd>space</kbd> = <kbd>"</kbd>)_
 
-I have accepted the need to adapt to their differences, but only after learning how to work around them if needed. If I change my mind or you want to write `ç` in the usual way (:laughing:), the following references will give you the explanation and potential fixes (I haven't tested them yet - do so at your own risk):
+I have accepted the need to adapt to their differences, but only after learning how to work around them if needed. If I change my mind or you want to write `ç` in the usual way :laughing:, the following references will give you the explanation and potential fixes (I haven't tested them yet - do so at your own risk):
 
 - [I cannot type letter ‘ç’ a with English (US, alt. Intl.)](https://askubuntu.com/questions/1372339/i-cannot-type-letter-%C3%A7-a-with-english-us-alt-intl)
 - [Cedilla under C (ç) in 'US international with dead keys' keyboard layout in Linux](https://superuser.com/questions/1075992/cedilla-under-c-%c3%a7-in-us-international-with-dead-keys-keyboard-layout-in-linu/1235405#1235405) _(potential workaround)_
