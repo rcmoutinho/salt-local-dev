@@ -31,7 +31,7 @@
 
 1password-add-apt-repository:
   pkgrepo.managed:
-    - name: deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main
+    - name: deb [arch={{ salt.grains.get('osarch') }} signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main
     - file: /etc/apt/sources.list.d/1password.list
     - refresh: True
     - require_in:
