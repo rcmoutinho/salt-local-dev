@@ -28,6 +28,7 @@ The project uses a [Salt Masterless](https://docs.saltproject.io/en/latest/topic
   - General Tools
     - 1password
     - Shutter _(for screenshots)_
+    - Spotify
   - General packages
     - tree
     - curl
