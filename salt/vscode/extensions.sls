@@ -14,7 +14,7 @@ vscode-install-{{ extension }}:
     - unless:
       - fun: cmd.run
         cmd: code --list-extensions | grep {{ extension }}
-        runas: rcmoutinho
+        runas: {{ account.username }}
         python_shell: True
         output_loglevel: quiet # prevent printing expected log errors
 

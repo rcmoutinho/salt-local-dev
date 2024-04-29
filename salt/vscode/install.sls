@@ -9,7 +9,7 @@ vscode-install:
     - unless:
       - fun: cmd.run
         cmd: snap list code
-        runas: rcmoutinho
+        runas: {{ account.username }}
         output_loglevel: quiet # prevent printing expected log errors
 
 {% endif %}
