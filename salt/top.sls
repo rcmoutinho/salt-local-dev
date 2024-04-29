@@ -7,6 +7,7 @@ base:
     - tools
 
   G@kernel:Linux:
-    - sudoers
     - gdm
     - grub
+    - ssh
+    - sudoers
