@@ -5,6 +5,7 @@ base:
     - git
     - vscode
     - tools
+    - docker
 
   G@kernel:Linux:
     - gdm

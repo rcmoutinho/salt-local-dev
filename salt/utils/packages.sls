@@ -3,8 +3,9 @@
 utils-packages-install:
   pkg.installed:
     - pkgs:
-      - tree
+      - ca-certificates
       - curl
+      - tree
       - vim
 
 {% endif %}
