@@ -6,7 +6,6 @@ include:
 grub-customizer-apt-repository:
   pkgrepo.managed:
     - ppa: danielrichter2007/grub-customizer
-    - refresh: True
     - require_in:
       - pkg: grub-customizer-install-latest
 
