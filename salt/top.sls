@@ -2,6 +2,7 @@ base:
   '*':
     - salt.minion
     - utils
+    - ssh
     - git
     - vscode
     - tools
@@ -10,5 +11,4 @@ base:
   G@kernel:Linux:
     - gdm
     - grub
-    - ssh
     - sudoers
