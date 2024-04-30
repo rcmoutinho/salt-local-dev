@@ -8,6 +8,7 @@ base:
     - tools
     - docker
     - hypervisor
+    - vagrant
 
   G@kernel:Linux:
     - gdm

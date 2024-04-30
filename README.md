@@ -28,6 +28,7 @@ The project uses a [Salt Masterless](https://docs.saltproject.io/en/latest/topic
   - Docker and its configuration
   - Hypervisors
     - Virtualbox
+  - Vagrant
   - General Tools
     - 1password
     - Shutter _(for screenshots)_
@@ -41,9 +42,6 @@ The project uses a [Salt Masterless](https://docs.saltproject.io/en/latest/topic
   - Documentation about a few manual configurations
   
   Coming soon:
-  - Docker
-  - Vagrant
-  - Virtualbox
   - ZSH + configs + plugins
   - Python + Ruff + UV
   - ...
