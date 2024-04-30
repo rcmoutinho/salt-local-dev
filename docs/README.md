@@ -2,6 +2,12 @@
 
 You can find here extra information about everything available on this project, plus extra notes on how to debug multiple types of challenges.
 
+## OS Installation
+
+There is no point in replicating great and updated documentation on installing an OS when there is an official source. A pen drive and an additional computer will, most of the time, help you manage all the steps needed to set up a second computer.
+
+- [Install Ubuntu desktop](https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview)
+
 ## Frequently Asked Questions (FAQ)
 
 This is a quick way to collect and organize all common problems according to tools, operating systems, etc. Check the folder [docs/faq](./faq/) for all the details.
