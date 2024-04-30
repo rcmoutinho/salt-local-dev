@@ -159,6 +159,8 @@ sudo salt-call state.highstates
 
 Voilà! Everything is now configured!
 
+> **IMPORTANT:** Keep in mind this code was developed to be **idempotent**. So after running once, following executions won't change the final result unless there is something to change _(like a new software version in case we enforce the latest)_.
+
 ## Documentation
 
 Find more about the project, extra configurations, faq, and more under the [doc folder](./docs/README.md).
