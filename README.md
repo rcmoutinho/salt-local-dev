@@ -26,6 +26,8 @@ The project uses a [Salt Masterless](https://docs.saltproject.io/en/latest/topic
   - GIT and its configuration
   - Visual Studio Code and extensions
   - Docker and its configuration
+  - Hypervisors
+    - Virtualbox
   - General Tools
     - 1password
     - Shutter _(for screenshots)_

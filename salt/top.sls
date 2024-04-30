@@ -7,6 +7,7 @@ base:
     - vscode
     - tools
     - docker
+    - hypervisor
 
   G@kernel:Linux:
     - gdm
