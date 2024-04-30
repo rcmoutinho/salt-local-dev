@@ -3,8 +3,6 @@
 include:
   - utils
 
-# https://docs.docker.com/engine/install/ubuntu/
-
 docker-add-apt-gpg-key: # favor gpg considering apt-key is depricated
   file.managed:
     - name: /etc/apt/keyrings/docker.asc

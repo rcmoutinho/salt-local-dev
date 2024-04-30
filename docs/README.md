@@ -16,5 +16,6 @@ Check the folder [docs/manual](./manual/) for all the details.
 
 Some states contain deeper documentation about the implementation's hows and whys. If you are having issues, you might want to check some of them.
 
+- [Docker](/salt/docker)
 - [GDM (GNOME Display Manager)](/salt/gdm) _(Linux only)_
 - [GRUB (GRand Unified Bootloader)](/salt/grub) _(Linux only)_
