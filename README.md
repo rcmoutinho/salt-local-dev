@@ -170,4 +170,4 @@ Supported and tested OS, so far:
 
 ## License
 
-MIT
+[MIT License](LICENSE)
