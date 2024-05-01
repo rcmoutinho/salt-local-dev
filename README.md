@@ -26,6 +26,7 @@ The project uses a [Salt Masterless](https://docs.saltproject.io/en/latest/topic
   - GIT and its configuration
   - Visual Studio Code and extensions
   - Docker and its configuration
+  - Terminal using Zsh
   - Hypervisors
     - Virtualbox
   - Vagrant
