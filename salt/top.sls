@@ -9,6 +9,7 @@ base:
     - docker
     - hypervisor
     - vagrant
+    - zsh
 
   G@kernel:Linux:
     - gdm
