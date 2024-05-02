@@ -25,3 +25,4 @@ Some states contain deeper documentation about the implementation's hows and why
 - [Docker](/salt/docker)
 - [GDM (GNOME Display Manager)](/salt/gdm) _(Linux only)_
 - [GRUB (GRand Unified Bootloader)](/salt/grub) _(Linux only)_
+- [Zsh](/salt/zsh)
