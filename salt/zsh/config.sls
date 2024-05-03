@@ -4,8 +4,13 @@
 {% if salt.grains.get('kernel') == "Linux" %}
 
 zsh-config-shell-as-default-for-{{ account.username }}:
-  user.present:
-    - name: {{ account.username }}
-    - shell: {{ zsh.path }}
+  cmd.run:
+    - name: chsh -s {{ zsh.path }} {{ account.username }}
+    - unless:
+      - fun: cmd.run
+        cmd: grep "^$USER.*{{ zsh.path }}" /etc/passwd
+        runas: {{ account.username }}
+        python_shell: True
+        output_loglevel: quiet # prevent printing expected log errors
 
 {% endif %}
