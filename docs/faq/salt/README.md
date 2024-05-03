@@ -1,7 +1,5 @@
 # Salt <!-- omit in toc -->
 
-[Back to Top]: #salt
-
 - [How to get any documentation from the command line](#how-to-get-any-documentation-from-the-command-line)
 - [How to troubleshoot rendering a map file](#how-to-troubleshoot-rendering-a-map-file)
 
@@ -29,8 +27,6 @@ sudo salt-call sys.state_doc service.running
 sudo salt-call sys.doc sys.state_doc
 ```
 
-_[Back to Top]_
-
 ## How to troubleshoot rendering a map file
 
 A quick way to check your map file's behavior even before using it under a state file is to use the module and function `jinja.load_map`. Here is an example based on this project:
@@ -43,5 +39,3 @@ sudo salt-call jinja.load_map personal/map.jinja account
 
 Reference:
 - [Salt user guide - Map files](https://docs.saltproject.io/salt/user-guide/en/latest/topics/map-files.html#troubleshoot-rendering)
-
-_[Back to Top]_
