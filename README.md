@@ -1,5 +1,7 @@
 # Salt Local Development <!-- omit in toc -->
 
+[Back to Top]: #salt-local-development
+
 - [About](#about)
 - [Install Salt](#install-salt)
 - [Setup the project](#setup-the-project)
@@ -55,6 +57,8 @@ The project uses a [Salt Masterless](https://docs.saltproject.io/en/latest/topic
 
 </details>
 
+_[Back to Top]_
+
 ## Install Salt
 
 The easiest way to start is by installing salt via [bootstrap script](https://github.com/saltstack/salt-bootstrap). Check [Salt release notes](https://docs.saltproject.io/en/latest/topics/releases/index.html) page to pick your desired version.
@@ -94,6 +98,8 @@ You can run some quick and basic tests using the `--local` argument:
 sudo salt-call --local test.ping
 sudo salt-call --local test.versions
 ```
+
+_[Back to Top]_
 
 ## Setup the project
 
@@ -162,15 +168,23 @@ Voilà! Everything is now configured!
 
 > **IMPORTANT:** Keep in mind this code was developed to be **idempotent**. So after running once, following executions won't change the final result unless there is something to change _(like a new software version in case we enforce the latest)_.
 
+_[Back to Top]_
+
 ## Documentation
 
 Find more about the project, extra configurations, faq, and more under the [doc folder](./docs/README.md).
+
+_[Back to Top]_
 
 ## Support
 
 Supported and tested OS, so far:
 - Ubuntu 20.04 LTS
 
+_[Back to Top]_
+
 ## License
 
 [MIT License](LICENSE)
+
+_[Back to Top]_
