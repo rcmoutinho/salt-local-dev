@@ -23,10 +23,10 @@ The project uses a [Salt Masterless](https://docs.saltproject.io/en/latest/topic
   <summary>Quick overview of all automated installs <i>(click to expand)</i></summary>
 
   ### Linux <!-- omit in toc -->
-  - GIT and its configuration
-  - Visual Studio Code and extensions
-  - Docker and its configuration
-  - Terminal using Zsh
+  - GIT + configs
+  - Visual Studio Code + extensions
+  - Docker + configs
+  - Terminal using Zsh + configs + theme + plugins
   - Hypervisors
     - Virtualbox
   - Vagrant
@@ -38,12 +38,12 @@ The project uses a [Salt Masterless](https://docs.saltproject.io/en/latest/topic
     - tree
     - curl
   - Extra
-    - GDM (GNOME Display Manager) and its configurations
+    - GDM (GNOME Display Manager) + configs
     - GRUB Customizer
+    - Extra fonts
   - Documentation about a few manual configurations
   
   Coming soon:
-  - ZSH + configs + plugins
   - Python + Ruff + UV
   - ...
   
