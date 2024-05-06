@@ -1,9 +1,9 @@
 {% from "personal/map.jinja" import account with context %}
-{% from "fonts/map.jinja" import nerd_fonts, update with context %}
+{% from "fonts/map.jinja" import fonts, update with context %}
 
 {% if salt.grains.get('os') == "Ubuntu" %}
 
-  {% for font in nerd_fonts %}
+  {% for font in fonts %}
 fonts-install-nerd-fonts-{{ font.name }}:
   archive.extracted:
     - name: {{ account.info.home }}/.local/share/fonts/{{ font.name }}
