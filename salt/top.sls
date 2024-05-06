@@ -5,6 +5,7 @@ base:
     - system.os
     - ssh
     - git
+    - fonts
     - vscode
     - tools
     - docker

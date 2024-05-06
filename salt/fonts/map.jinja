@@ -1,0 +1,4 @@
+{% set _fonts_pillar = salt.pillar.get('fonts') %}
+{% set nerd_fonts = _fonts_pillar.extra.nerd_fonts %}
+
+{% set update = salt.pillar.get('update', false) %}

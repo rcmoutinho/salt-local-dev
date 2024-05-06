@@ -1,4 +1,5 @@
 base:
   '*':
     - personal
+    - fonts
     - vscode
