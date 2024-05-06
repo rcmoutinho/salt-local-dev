@@ -1,4 +1,4 @@
-{% if salt.grains.get('kernel') == "Linux" %}
+{% if salt.grains.get('os') == "Ubuntu" %}
 
 # 10 Tools to Take or Capture Desktop Screenshots in Linux:
 # https://www.tecmint.com/take-or-capture-desktop-screenshots-in-ubuntu-linux/

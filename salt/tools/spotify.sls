@@ -1,4 +1,4 @@
-{% if salt.grains.get('kernel') == "Linux" %}
+{% if salt.grains.get('os') == "Ubuntu" %}
 
 # https://www.spotify.com/us/download/linux/
 

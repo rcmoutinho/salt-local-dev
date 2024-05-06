@@ -1,6 +1,6 @@
 {% from "personal/map.jinja" import account with context %}
 
-{% if salt.grains.get('kernel') == "Linux" %}
+{% if salt.grains.get('os') == "Ubuntu" %}
 
 git-config-gitconfig-file:
   file.managed:

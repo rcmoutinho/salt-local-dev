@@ -1,6 +1,6 @@
 {% set restart_service_on_changes = salt.pillar.get('restart_service_on_changes', False) %}
 
-{% if salt.grains.get('kernel') == "Linux" %}
+{% if salt.grains.get('os') == "Ubuntu" %}
 
 include:
   - gdm.service

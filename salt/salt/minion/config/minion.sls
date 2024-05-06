@@ -1,4 +1,4 @@
-{% if salt.grains.get('kernel') == "Linux" %}
+{% if salt.grains.get('os') == "Ubuntu" %}
 
 salt-minion-conf-base:
   file.managed:

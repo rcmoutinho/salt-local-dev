@@ -1,7 +1,7 @@
 {% from "personal/map.jinja" import account with context %}
 {% from "zsh/map.jinja" import zsh with context %}
 
-{% if salt.grains.get('kernel') == "Linux" %}
+{% if salt.grains.get('os') == "Ubuntu" %}
 
 oh-my-zsh-install:
   cmd.script:

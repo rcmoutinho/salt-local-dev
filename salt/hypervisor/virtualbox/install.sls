@@ -1,4 +1,4 @@
-{% if salt.grains.get('kernel') == "Linux" %}
+{% if salt.grains.get('os') == "Ubuntu" %}
 
 virtualbox-add-apt-gpg-key: # favor gpg considering apt-key is depricated
   cmd.run:

@@ -1,7 +1,7 @@
 {% from "personal/map.jinja" import account with context %}
 {% from "vscode/map.jinja" import extensions with context %}
 
-{% if salt.grains.get('kernel') == "Linux" %}
+{% if salt.grains.get('os') == "Ubuntu" %}
 
 ## TODO [FUN] Create custom module and state to manage vscode basic CLI or bulk install
 

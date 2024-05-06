@@ -1,4 +1,4 @@
-{% if salt.grains.get('kernel') == "Linux" %}
+{% if salt.grains.get('os') == "Ubuntu" %}
 
 # Improve PPA support: https://docs.saltproject.io/en/latest/ref/states/all/salt.states.pkgrepo.html
 # Alternative to package: python-software-properties
