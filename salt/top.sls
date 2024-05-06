@@ -2,6 +2,7 @@ base:
   '*':
     - salt.minion
     - utils
+    - system.os
     - ssh
     - git
     - vscode

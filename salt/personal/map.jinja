@@ -1,7 +1,8 @@
-{% set _account_pillar = salt.pillar.get('personal:account:user') %}
+{% set _account_pillar = salt.pillar.get('personal') %}
 
 {% set _additional_data = {
-  'info': salt.user.info(_account_pillar.username),
+  'info': salt.user.info(_account_pillar.account.user.username),
 } %}
 
-{% set account = salt.slsutil.merge(_account_pillar, _additional_data) %}
+{% set account = salt.slsutil.merge(_account_pillar.account.user, _additional_data) %}
+{% set license = _account_pillar.license %}

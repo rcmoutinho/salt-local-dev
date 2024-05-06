@@ -5,6 +5,7 @@ utils-packages-install:
     - pkgs:
       - ca-certificates
       - curl
+      - jq
       - tree
       - vim
 

@@ -21,3 +21,6 @@ personal:
         -----BEGIN RSA PRIVATE KEY-----
         ...
         -----END RSA PRIVATE KEY-----
+
+  license:
+    ubuntu_pro: my_token_here # https://ubuntu.com/pro/tutorial

@@ -35,8 +35,10 @@ The project uses a [Salt Masterless](https://docs.saltproject.io/en/latest/topic
     - Shutter _(for screenshots)_
     - Spotify
   - General packages
-    - tree
     - curl
+    - jq
+    - tree
+    - vim
   - Extra
     - GDM (GNOME Display Manager) + configs
     - GRUB Customizer
