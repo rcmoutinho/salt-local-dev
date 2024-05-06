@@ -7,6 +7,8 @@ You can find here extra information about everything available on this project, 
 There is no point in replicating great and updated documentation on installing an OS when there is an official source. A pen drive and an additional computer will, most of the time, help you manage all the steps needed to set up a second computer.
 
 - [Install Ubuntu desktop](https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview)
+  - You can get up to 5 licenses from the [PRO version](https://ubuntu.com/pro) for personal use
+  - [Get started with Ubuntu Pro](https://ubuntu.com/pro/tutorial)
 
 ## Frequently Asked Questions (FAQ)
 
