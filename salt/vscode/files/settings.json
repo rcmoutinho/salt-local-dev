@@ -2,7 +2,7 @@
   "workbench.colorTheme": "Dracula Soft",
   "workbench.iconTheme": "material-icon-theme",
   "editor.renderWhitespace": "all",
-  "[jsonc]": {
+  "[json]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "files.exclude": {
