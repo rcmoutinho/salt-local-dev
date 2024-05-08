@@ -1,0 +1,2 @@
+include:
+  - .powerlevel10k
