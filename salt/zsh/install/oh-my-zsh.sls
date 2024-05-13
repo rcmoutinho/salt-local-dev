@@ -1,5 +1,4 @@
 {% from "personal/map.jinja" import account with context %}
-{% from "zsh/map.jinja" import zsh with context %}
 
 {% if salt.grains.get('os') == "Ubuntu" %}
 
