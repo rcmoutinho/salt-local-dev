@@ -1,0 +1,5 @@
+{% set custom_plugins = salt.pillar.get('zsh:plugins:custom', []) %}
+
+{% set _pillar_load = salt.pillar.get('zsh:plugins:load', []) %}
+{% set _custom_plugins_names = custom_plugins | map(attribute='name') | list %}
+{% set load_plugins = (_pillar_load + _custom_plugins_names) | sort %}

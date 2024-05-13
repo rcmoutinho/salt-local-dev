@@ -1,4 +1,5 @@
 {% from "personal/map.jinja" import account with context %}
+{% from "zsh/plugins/map.jinja" import load_plugins with context %}
 
 {% if salt.grains.get('os') == "Ubuntu" %}
 
@@ -10,5 +11,7 @@ zsh-config-zshrc-file:
     - user: {{ account.username }}
     - group: {{ account.group }}
     - mode: 0644
+    - context:
+        load_plugins: {{ load_plugins }}
 
 {% endif %}
