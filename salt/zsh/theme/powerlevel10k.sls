@@ -7,8 +7,7 @@ zsh-theme-powerlevel10k-install:
     - name: https://github.com/romkatv/powerlevel10k.git
     - target: {{ account.info.home }}/.oh-my-zsh/custom/themes/powerlevel10k
     - user: {{ account.username }}
-    - rev: master
-    - branch: master
+    - rev: v1.20.0
     - depth: 1 # ensure just the last commit is important
 
 zsh-theme-powerlevel10k-config:
