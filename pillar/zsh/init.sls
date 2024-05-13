@@ -4,6 +4,7 @@ zsh:
   plugins:
     load:
       - git
+      - salt
       - vagrant
 
     custom:
