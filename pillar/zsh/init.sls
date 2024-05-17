@@ -3,10 +3,10 @@
 zsh:
   plugins:
     load:
-      - git
+      - git # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git
       - eza # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/eza
-      - salt
-      - vagrant
+      - salt # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/salt
+      - vagrant # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/vagrant
 
     custom:
       - name: zsh-autosuggestions
