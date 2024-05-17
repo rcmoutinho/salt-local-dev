@@ -23,27 +23,27 @@ The project uses a [Salt Masterless](https://docs.saltproject.io/en/latest/topic
   <summary>Quick overview of all automated installs <i>(click to expand)</i></summary>
 
   ### Linux <!-- omit in toc -->
-  - GIT + configs
-  - Visual Studio Code + extensions
-  - Docker + configs
-  - Terminal using Zsh + configs + theme + plugins
+  - [GIT](https://git-scm.com/) + configs
+  - [Visual Studio Code](https://code.visualstudio.com/) + extensions
+  - [Docker](https://www.docker.com/) + configs
+  - Terminal using [Zsh](https://www.zsh.org/) + configs + theme + plugins
   - Hypervisors
-    - Virtualbox
-  - Vagrant
+    - [Virtualbox](https://www.virtualbox.org/)
+  - [Vagrant](https://www.vagrantup.com/)
   - General Tools
-    - 1password
-    - Shutter _(for screenshots)_
-    - Spotify
-    - [eza](https://eza.rocks/)
+    - [1Password](https://1password.com/)
+    - [Shutter](https://shutter-project.org/) _(for screenshots)_
+    - [Spotify](https://open.spotify.com/)
   - General packages
     - curl
-    - jq
+    - [jq](https://jqlang.github.io/jq/)
     - tree
     - vim
   - Extra
     - GDM (GNOME Display Manager) + configs
     - GRUB Customizer
     - Extra fonts
+    - [eza](https://eza.rocks/) _(alternative for `ls` command)_
   - Documentation about a few manual configurations
   
   Coming soon:
