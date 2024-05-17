@@ -12,6 +12,7 @@ base:
     - hypervisor
     - vagrant
     - zsh
+    - eza
 
   G@kernel:Linux:
     - gdm

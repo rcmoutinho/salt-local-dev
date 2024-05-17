@@ -34,6 +34,7 @@ The project uses a [Salt Masterless](https://docs.saltproject.io/en/latest/topic
     - 1password
     - Shutter _(for screenshots)_
     - Spotify
+    - [eza](https://eza.rocks/)
   - General packages
     - curl
     - jq

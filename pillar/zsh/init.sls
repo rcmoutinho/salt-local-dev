@@ -4,6 +4,7 @@ zsh:
   plugins:
     load:
       - git
+      - eza # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/eza
       - salt
       - vagrant
 
