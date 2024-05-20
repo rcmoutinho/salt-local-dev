@@ -4,6 +4,7 @@ utils-packages-install:
   pkg.installed:
     - pkgs:
       - ca-certificates
+      - wget
       - curl
       - jq
       - tree
