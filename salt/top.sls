@@ -11,8 +11,9 @@ base:
     - docker
     - hypervisor
     - vagrant
-    - zsh
     - eza
+    - python
+    - zsh
 
   G@kernel:Linux:
     - gdm

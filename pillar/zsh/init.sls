@@ -5,6 +5,8 @@ zsh:
     load:
       - git # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git
       - eza # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/eza
+      - pyenv # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/pyenv
+      # - python # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/python
       - salt # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/salt
       - vagrant # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/vagrant
 
