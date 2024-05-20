@@ -1,0 +1,9 @@
+{% from "personal/map.jinja" import account %}
+
+{% set _pyenv_pillar = salt.pillar.get('python:pyenv', {}) %}
+{% set _additional_data = {
+  'path': account.info.home + "/.pyenv/bin",
+  'user': account.username,
+} %}
+
+{% set pyenv = salt.slsutil.merge(_pyenv_pillar, _additional_data) %}

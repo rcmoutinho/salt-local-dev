@@ -1,3 +1,4 @@
 include:
   - .install
   - .plugins
+  - .versions
