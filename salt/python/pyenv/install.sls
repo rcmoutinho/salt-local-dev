@@ -1,4 +1,4 @@
-{% from "personal/map.jinja" import account with context %}
+{% from "python/pyenv/map.jinja" import pyenv with context %}
 
 {% if salt.grains.get('os') == "Ubuntu" %}
 
@@ -26,8 +26,8 @@ python-pyenv-dependencies:
 python-pyenv-install:
   git.latest:
     - name: https://github.com/pyenv/pyenv.git
-    - target: {{ account.info.home }}/.pyenv
-    - user: {{ account.username }}
+    - target: {{ pyenv.path.root }}
+    - user: {{ pyenv.user }}
     - rev: v2.4.1
     - depth: 1 # ensure just the last commit is important
 

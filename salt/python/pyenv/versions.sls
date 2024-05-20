@@ -10,7 +10,7 @@ python-pyenv-doctor-check:
         cmd: pyenv doctor
         runas: {{ pyenv.user }}
         output_loglevel: quiet # prevent printing expected log errors
-        prepend_path: {{ pyenv.path }}
+        prepend_path: {{ pyenv.path.bin }}
 
   {% for version in pyenv.versions %}
 python-pyenv-versions-install-{{ version.name }}:

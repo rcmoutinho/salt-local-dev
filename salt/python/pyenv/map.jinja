@@ -1,8 +1,14 @@
 {% from "personal/map.jinja" import account %}
 
 {% set _pyenv_pillar = salt.pillar.get('python:pyenv', {}) %}
+{% set _pyenv_root = account.info.home + "/.pyenv" %}
+
 {% set _additional_data = {
-  'path': account.info.home + "/.pyenv/bin",
+  'path': {
+    'root': _pyenv_root,
+    'bin': _pyenv_root + "/bin",
+    'plugins': _pyenv_root + "/plugins",
+  },
   'user': account.username,
 } %}
 
