@@ -8,5 +8,5 @@ python:
       - name: 3.12.3
         default: true
         pip_pkgs:
-          - ruff
-          - uv
+          - ruff # https://github.com/astral-sh/ruff
+          - uv # https://github.com/astral-sh/uv

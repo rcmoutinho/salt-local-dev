@@ -11,6 +11,7 @@ vscode:
     - eamodio.gitlens                               # GitLens — Git supercharged
     - samuelcolvin.jinjahtml                        # Better Jinja
     - marcostazi.vs-code-vagrantfile                # Vagrantfile Support
+    - charliermarsh.ruff                            # Ruff
 
     ### General development
     - mikestead.dotenv                              # DotENV
