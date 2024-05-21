@@ -20,6 +20,16 @@ python-pyenv-versions-install-{{ version.name }}:
     - default: {{ version.default | default(false) }}
     - require:
       - test: python-pyenv-doctor-check
+
+    {% if version.pip_pkgs is defined %}
+python-pyenv-versions-install-{{ version.name }}-pip:
+  pip.installed:
+    - pkgs: {{ version.pip_pkgs }}
+    - user: {{ pyenv.user }}
+    - bin_env: {{ pyenv.path.root }}/versions/{{ version.name }}/bin
+    - require:
+      - pyenv: python-pyenv-versions-install-{{ version.name }}
+    {% endif %}
   {% endfor %}
 
 {% endif %}

@@ -1,6 +1,15 @@
 {% from "personal/map.jinja" import account %}
 
 {% set _pyenv_pillar = salt.pillar.get('python:pyenv', {}) %}
+
+
+{# VALIDATIONS #}
+{% if _pyenv_pillar.versions is not defined %}
+  {% do _pyenv_pillar.update({ 'versions': [] }) %}
+{% endif %}
+
+
+{# EXTRA #}
 {% set _pyenv_root = account.info.home + "/.pyenv" %}
 
 {% set _additional_data = {
@@ -12,4 +21,6 @@
   'user': account.username,
 } %}
 
+
+{# EXPOSE #}
 {% set pyenv = salt.slsutil.merge(_pyenv_pillar, _additional_data) %}
