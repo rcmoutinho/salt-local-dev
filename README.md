@@ -27,6 +27,7 @@ The project uses a [Salt Masterless](https://docs.saltproject.io/en/latest/topic
   - [Visual Studio Code](https://code.visualstudio.com/) + extensions
   - [Docker](https://www.docker.com/) + configs
   - Terminal using [Zsh](https://www.zsh.org/) + configs + theme + plugins
+  - [Python](https://www.python.org/) + [Ruff](https://astral.sh/ruff) + [UV](https://astral.sh/uv)
   - Hypervisors
     - [Virtualbox](https://www.virtualbox.org/)
   - [Vagrant](https://www.vagrantup.com/)
@@ -45,10 +46,6 @@ The project uses a [Salt Masterless](https://docs.saltproject.io/en/latest/topic
     - Extra fonts
     - [eza](https://eza.rocks/) _(alternative for `ls` command)_
   - Documentation about a few manual configurations
-  
-  Coming soon:
-  - Python + Ruff + UV
-  - ...
   
   ### Windows <!-- omit in toc -->
   _Coming soon ( as I have time :smile: )_
