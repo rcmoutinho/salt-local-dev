@@ -9,6 +9,7 @@ There is no point in replicating great and updated documentation on installing a
 - [Install Ubuntu desktop](https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview)
   - You can get up to 5 licenses from the [PRO version](https://ubuntu.com/pro) for personal use
   - [Get started with Ubuntu Pro](https://ubuntu.com/pro/tutorial)
+- [Install macOS](./manual/macos.md)
 
 ## Frequently Asked Questions (FAQ)
 
