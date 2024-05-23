@@ -85,7 +85,7 @@ The easiest way to start is by installing salt via [bootstrap script](https://gi
   # install salt
   ## -P : Allow pip based installations
   ## -X : Do not start daemons after installation (to favor our masterless approach)
-  sudo sh /tmp/bootstrap-salt.sh -X -P stable 3006.7
+  sudo sh /tmp/bootstrap-salt.sh -X -P stable 3006.8
 
   # For Debian distros, like Ubuntu, we will need to manually stop the service
   ## Message from the script
