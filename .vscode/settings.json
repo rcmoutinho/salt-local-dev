@@ -1,0 +1,9 @@
+{
+  "files.associations": {
+    "*.conf.jinja": "jinja-properties",
+    ".zshrc.jinja": "jinja-shell",
+    ".zshrc.template": "shellscript",
+    "gitconfig.jinja": "jinja-properties",
+    "Saltfile.template": "yaml",
+  }
+}

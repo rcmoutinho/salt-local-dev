@@ -5,6 +5,7 @@
   "editor.fontLigatures": true,
   "editor.fontSize": 14,
   "editor.renderWhitespace": "all",
+  "editor.formatOnSave": true,
   "[json]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
