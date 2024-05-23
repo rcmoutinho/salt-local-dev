@@ -2,6 +2,8 @@
 
 - [About](#about)
 - [Install Salt](#install-salt)
+  - [By Operational Systems](#by-operational-systems)
+  - [Basic testing](#basic-testing)
 - [Setup the project](#setup-the-project)
   - [Configure personal data](#configure-personal-data)
   - [Configure GPG keys (Optional)](#configure-gpg-keys-optional)
@@ -59,35 +61,43 @@ The project uses a [Salt Masterless](https://docs.saltproject.io/en/latest/topic
 
 The easiest way to start is by installing salt via [bootstrap script](https://github.com/saltstack/salt-bootstrap). Check [Salt release notes](https://docs.saltproject.io/en/latest/topics/releases/index.html) page to pick your desired version.
 
-```bash
-curl -o /tmp/bootstrap-salt.sh -L https://bootstrap.saltproject.io
+### By Operational Systems
 
-# test the downloaded file
-test $(sha256sum /tmp/bootstrap-salt.sh | awk '{print $1}') \
-   = $(curl -sL https://bootstrap.saltproject.io/sha256 | cat -) \
-   && echo "OK" || echo "File does not match checksum"
+<details>
+  <summary>Ubuntu <i>(click to expand)</i></summary>
 
-# alternative for curl
-wget -O /tmp/bootstrap-salt.sh https://bootstrap.saltproject.io
+  ```bash
+  curl -o /tmp/bootstrap-salt.sh -L https://bootstrap.saltproject.io
 
-# test the downloaded file
-test $(sha256sum /tmp/bootstrap-salt.sh | awk '{print $1}') \
-   = $(wget -qO- https://bootstrap.saltproject.io/sha256) \
-   && echo "OK" || echo "File does not match checksum"
+  # test the downloaded file
+  test $(sha256sum /tmp/bootstrap-salt.sh | awk '{print $1}') \
+    = $(curl -sL https://bootstrap.saltproject.io/sha256 | cat -) \
+    && echo "OK" || echo "File does not match checksum"
 
-# install salt
-## -P : Allow pip based installations
-## -X : Do not start daemons after installation (to favor our masterless approach)
-sudo sh /tmp/bootstrap-salt.sh -X -P stable 3006.7
+  # alternative for curl
+  wget -O /tmp/bootstrap-salt.sh https://bootstrap.saltproject.io
 
-# For Debian distros, like Ubuntu, we will need to manually stop the service
-## Message from the script
-## WARN: Not starting daemons on Debian based distributions is not working mostly because starting them is the default behaviour.
-sudo systemctl stop salt-minion
+  # test the downloaded file
+  test $(sha256sum /tmp/bootstrap-salt.sh | awk '{print $1}') \
+    = $(wget -qO- https://bootstrap.saltproject.io/sha256) \
+    && echo "OK" || echo "File does not match checksum"
 
-# check if the service is stopped
-sudo systemctl status salt-minion
-```
+  # install salt
+  ## -P : Allow pip based installations
+  ## -X : Do not start daemons after installation (to favor our masterless approach)
+  sudo sh /tmp/bootstrap-salt.sh -X -P stable 3006.7
+
+  # For Debian distros, like Ubuntu, we will need to manually stop the service
+  ## Message from the script
+  ## WARN: Not starting daemons on Debian based distributions is not working mostly because starting them is the default behaviour.
+  sudo systemctl stop salt-minion
+
+  # check if the service is stopped
+  sudo systemctl status salt-minion
+  ```
+</details>
+
+### Basic testing
 
 You can run some quick and basic tests using the `--local` argument:
 ```bash
