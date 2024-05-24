@@ -112,12 +112,18 @@ The easiest way to start is by installing salt via [bootstrap script](https://gi
   ## -P : Allow pip based installations
   ## -X : Do not start daemons after installation (to favor our masterless approach)
   sudo sh /tmp/bootstrap-salt.sh -X -P stable 3006.8
+
+  # Once it's installed, open a new terminal before executing salt commands
   ```
+
+  > _**EXTRA NOTES:** You might get a dialog regarding python3 asking to install **"command line developer tools"** (please do so because it's helpful and will install essential initial tools like git - the installation might take a while)_
+
 </details>
 
 ### Basic testing
 
 You can run some quick and basic tests using the `--local` argument:
+
 ```bash
 sudo salt-call --local test.ping
 sudo salt-call --local test.versions
