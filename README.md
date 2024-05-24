@@ -5,6 +5,7 @@
   - [By Operational Systems](#by-operational-systems)
   - [Basic testing](#basic-testing)
 - [Setup the project](#setup-the-project)
+  - [Configure Saltfile (Optional)](#configure-saltfile-optional)
   - [Configure personal data](#configure-personal-data)
   - [Configure GPG keys (Optional)](#configure-gpg-keys-optional)
   - [Configure Masterless](#configure-masterless)
@@ -147,9 +148,13 @@ The Masterless approach means that instead of connecting to a Salt master to col
 
 It's possible to force local calls using the argument `--local` and many other specific configurations, but using a [Saltfile](https://docs.saltproject.io/salt/install-guide/en/latest/topics/configure-master-minion.html#saltfile) makes everything WAY simpler in this scenario.
 
+### Configure Saltfile (Optional)
+
 Duplicate the reference [Saltfile.template](./Saltfile.template), in the root of this project, into [Saltfile](./Saltfile) and define all the specific configurations you have. This configuration will help you typing less arguments when executing commands from the root of the project.
 
-> **Advanced:** In case you want to make this permanent to your user for any salt project, you could move the file to `~/.salt/Saltfile`, but considering you are always using `sudo`, it will favor `root` user references. You can change the [user minion configuration](https://docs.saltproject.io/en/latest/ref/configuration/minion.html#user) to not use `root`, but this can be a bit advanced for a simple setup we want here.
+Depending on the OS _(for example, macOS)_, it will only work when saving the file under `~/.salt/Saltfile`. However, for other OS, _like Ubuntu_, this approach might not work because you always use `sudo`, which favors `root` user references. You can change the [user minion configuration](https://docs.saltproject.io/en/latest/ref/configuration/minion.html#user) not to use `root`, but this can be a bit advanced for a simple setup we want here.
+
+Regardless of your choice, we can apply the salt minion state later to make the `file_client` configuration permanent.
 
 ### Configure personal data
 
@@ -174,11 +179,19 @@ sudo gpg --homedir /etc/salt/gpgkeys --gen-key
 
 ### Configure Masterless
 
-Once you have your [Saltfile](./Saltfile) configured, you can now run the salt minion state to make masterless definitions permament. This would be optional in a way but it make simpler to ensure all the configurations you have for your salt setup.
+You can now run the salt minion state to make masterless definitions permament. This would be optional in a way but it make simpler to ensure all the configurations you have for your salt setup.
 
 ```bash
+# with Saltfile configured
 sudo salt-call state.sls salt.minion
+
+# without Saltfile configured
+sudo salt-call --local --file-root /path/to/my/project/salt --pillar-root /path/to/my/project/pillar state.sls salt.minion
 ```
+
+If you get an error like `No matching sls found for 'salt.minion' in env 'base'`. Please check your Saltfile or arguments regarding the file and pillar root. It must point correctly to the [salt](./salt/) and [pillar](./pillar/) folders from this project.
+
+You will also get errors regarding missing the personal pillar folder if you haven't configured it [based on the template](pillar/personal.template/) yet.
 
 ### Apply all states
 

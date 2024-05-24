@@ -15,7 +15,7 @@ personal:
       name: Ayrton Senna
       email: ayrtonsenna@f1.legends.com
       username: ayrtonsenna
-      group: ayrtonsenna
+      group: ayrtonsenna # or staff for macOS
       ssh_public_key: ssh-rsa ... ayrtonsenna
       ssh_private_key: |
         -----BEGIN RSA PRIVATE KEY-----
