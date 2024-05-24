@@ -1,0 +1,35 @@
+{% set config = salt.grains.filter_by({
+
+  'default': { },
+
+  'Darwin': {
+    'directory': '/etc/salt/minion.d',
+
+    'minion': {
+      'file': '/etc/salt/minion.d/minion.conf',
+      'source': 'salt://salt/minion/config/files/minion.d/minion.conf.jinja',
+    },
+
+    'masterless': {
+      'file': '/etc/salt/minion.d/masterless.conf',
+      'source': 'salt://salt/minion/config/files/minion.d/masterless.conf',
+    },
+  },
+
+  'Linux': {
+    'directory': '/etc/salt/minion.d',
+
+    'minion': {
+      'file': '/etc/salt/minion.d/minion.conf',
+      'source': 'salt://salt/minion/config/files/minion.d/minion.conf.jinja',
+    },
+
+    'masterless': {
+      'file': '/etc/salt/minion.d/masterless.conf',
+      'source': 'salt://salt/minion/config/files/minion.d/masterless.conf',
+    },
+  },
+
+}, grain='kernel') %}
+
+{% do config.update({ 'supported_kernel': config.minion is defined }) %}

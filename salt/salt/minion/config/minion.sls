@@ -1,9 +1,11 @@
-{% if salt.grains.get('os') == "Ubuntu" %}
+{% from "salt/minion/config/map.jinja" import config with context %}
+
+{% if config.supported_kernel %}
 
 salt-minion-conf-base:
   file.managed:
-    - name: /etc/salt/minion.d/minion.conf
-    - source: salt://salt/minion/config/files/minion.d/minion.conf.jinja
+    - name: {{ config.minion.file }}
+    - source: {{ config.minion.source }}
     - template: jinja
 
 {% endif %}
