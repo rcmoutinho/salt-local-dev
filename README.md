@@ -97,6 +97,24 @@ The easiest way to start is by installing salt via [bootstrap script](https://gi
   ```
 </details>
 
+<details>
+  <summary>macOS <i>(click to expand)</i></summary>
+
+  ```bash
+  curl -o /tmp/bootstrap-salt.sh -L https://bootstrap.saltproject.io
+
+  # test the downloaded file
+  test $(shasum -a 256 /tmp/bootstrap-salt.sh | awk '{print $1}') \
+    = $(curl -sL https://bootstrap.saltproject.io/sha256 | cat -) \
+    && echo "OK" || echo "File does not match checksum"
+
+  # install salt
+  ## -P : Allow pip based installations
+  ## -X : Do not start daemons after installation (to favor our masterless approach)
+  sudo sh /tmp/bootstrap-salt.sh -X -P stable 3006.8
+  ```
+</details>
+
 ### Basic testing
 
 You can run some quick and basic tests using the `--local` argument:
@@ -180,6 +198,7 @@ Find more about the project, extra configurations, faq, and more under the [doc 
 
 Supported and tested OS, so far:
 - Ubuntu 20.04 LTS
+- macOS Monterey 12.7.5
 
 ## License
 
