@@ -1,8 +1,8 @@
 base:
   '*':
     - salt.minion
-    - utils
     - system.os
+    - utils
     - ssh
     - git
     - fonts
