@@ -1,15 +1,15 @@
-{% from "personal/map.jinja" import account with context %}
+{% from "sudoers/map.jinja" import sudoers with context %}
 
-{% if salt.grains.get('os') == "Ubuntu" %}
+{% if sudoers.supported_kernel %}
 
 # https://blog.afoolishmanifesto.com/posts/checking-sudoers-with-visudo-in-saltstack/
 sudoers-config-salt-local-dev:
   file.managed:
     - name: /etc/sudoers.d/salt-local-dev
-    - user: root
-    - group: root
+    - user: {{ sudoers.user }}
+    - group: {{ sudoers.group }}
     - mode: 0440
     - check_cmd: /usr/sbin/visudo -c -f # ensure syntax is valid before saving it
-    - contents: "{{ account.username }}  ALL=(ALL)  NOPASSWD:ALL"
+    - contents: {{ sudoers.contents }}
 
 {% endif %}
