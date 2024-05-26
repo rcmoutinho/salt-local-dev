@@ -197,6 +197,8 @@ You will also get errors regarding missing the personal pillar folder if you hav
 
 Once you have managed all the previous instructions, you should execute all states safely. Before applying all changes, you can run a test to understand all the potential changes.
 
+> _NOTE: **For macOS**, you might need to log in to the AppStore before running all states. Processes that install apps via CLI require this access. Only previously downloaded apps can be installed. Any other will cause an error while trying to install._
+
 ```bash
 # dry-run
 sudo salt-call state.highstates test=True
