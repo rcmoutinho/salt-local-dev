@@ -6,12 +6,12 @@ include:
   - sudoers
 
 homebrew-install: # https://github.com/Homebrew/install
-  cmd.script:
-    - name: https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
-    - shell: /bin/bash
+  cmd.run:
+    - name: 'NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
     - runas: {{ account.username }}
-    - creates: /usr/local/bin/brew
-    - env:
-      - NONINTERACTIVE: 1
+    - unless:
+      - fun: cmd.run
+        cmd: brew --version
+        output_loglevel: quiet # prevent printing expected log errors
 
 {% endif %}
