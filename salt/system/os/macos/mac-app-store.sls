@@ -4,7 +4,7 @@
 
 # https://github.com/mas-cli/mas
 mac-app-store-cli-install:
-  pkg.latest:
+  pkg.installed:
     - name: mas
 
   {% for app in mas.install %}
