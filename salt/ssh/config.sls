@@ -1,44 +1,44 @@
-{% from "personal/map.jinja" import account with context %}
+{% from "ssh/map.jinja" import ssh with context %}
 
-{% if salt.grains.get('os') == "Ubuntu" %}
+{% if ssh.supported %}
 
 ssh-folder:
   file.directory:
-    - name: {{ account.info.home }}/.ssh
-    - user: {{ account.username }}
-    - group: {{ account.group }}
+    - name: {{ ssh.directory }}
+    - user: {{ ssh.user }}
+    - group: {{ ssh.group }}
     - mode: 0700
 
 ssh-private-key:
   file.managed:
-    - name: {{ account.info.home }}/.ssh/id_rsa_{{ account.username }}
-    - user: {{ account.username }}
-    - group: {{ account.group }}
+    - name: {{ ssh.private_key.path }}
+    - user: {{ ssh.user }}
+    - group: {{ ssh.group }}
     - mode: 0600
-    - contents: {{ account.ssh_private_key | yaml_encode }}
+    - contents: {{ ssh.private_key.content | yaml_encode }}
 
 ssh-private-key-symlink:
   file.symlink:
-    - name: {{ account.info.home }}/.ssh/id_rsa
-    - target: {{ account.info.home }}/.ssh/id_rsa_{{ account.username }}
-    - user: {{ account.username }}
-    - group: {{ account.group }}
+    - name: {{ ssh.private_key.link }}
+    - target: {{ ssh.private_key.path }}
+    - user: {{ ssh.user }}
+    - group: {{ ssh.group }}
     - mode: 0600
 
 ssh-public-key:
   file.managed:
-    - name: {{ account.info.home }}/.ssh/id_rsa_{{ account.username }}.pub
-    - user: {{ account.username }}
-    - group: {{ account.group }}
+    - name: {{ ssh.public_key.path }}
+    - user: {{ ssh.user }}
+    - group: {{ ssh.group }}
     - mode: 0644
-    - contents: {{ account.ssh_public_key }}
+    - contents: {{ ssh.public_key.content }}
 
 ssh-public-key-symlink:
   file.symlink:
-    - name: {{ account.info.home }}/.ssh/id_rsa.pub
-    - target: {{ account.info.home }}/.ssh/id_rsa_{{ account.username }}.pub
-    - user: {{ account.username }}
-    - group: {{ account.group }}
+    - name: {{ ssh.public_key.link }}
+    - target: {{ ssh.public_key.path }}
+    - user: {{ ssh.user }}
+    - group: {{ ssh.group }}
     - mode: 0644
 
 {% endif %}
