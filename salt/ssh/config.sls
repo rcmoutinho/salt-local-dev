@@ -9,6 +9,7 @@ ssh-folder:
     - group: {{ ssh.group }}
     - mode: 0700
 
+  {% if ssh.private_key.defined %}
 ssh-private-key:
   file.managed:
     - name: {{ ssh.private_key.path }}
@@ -24,7 +25,12 @@ ssh-private-key-symlink:
     - user: {{ ssh.user }}
     - group: {{ ssh.group }}
     - mode: 0600
+  {% else %}
+ssh-private-key-not-defined:
+  test.succeed_without_changes
+  {% endif %}
 
+  {% if ssh.public_key.defined %}
 ssh-public-key:
   file.managed:
     - name: {{ ssh.public_key.path }}
@@ -40,5 +46,9 @@ ssh-public-key-symlink:
     - user: {{ ssh.user }}
     - group: {{ ssh.group }}
     - mode: 0644
+  {% else %}
+ssh-public-key-not-defined:
+  test.succeed_without_changes
+  {% endif %}
 
 {% endif %}

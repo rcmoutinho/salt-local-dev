@@ -7,13 +7,15 @@
   'group': account.group,
   'private_key': {
     'path': _ssh_directory + '/id_rsa_' + account.username,
-    'content': account.ssh_private_key,
+    'content': account.ssh_private_key | default(none),
     'link': _ssh_directory + '/id_rsa',
+    'defined': account.ssh_private_key is defined,
   },
   'public_key': {
     'path': _ssh_directory + '/id_rsa_' + account.username + '.pub',
-    'content': account.ssh_public_key,
+    'content': account.ssh_public_key | default(none),
     'link': _ssh_directory + '/id_rsa.pub',
+    'defined': account.ssh_public_key is defined,
   },
   'supported': salt.grains.get('kernel') == 'Darwin' or salt.grains.get('kernel') == 'Linux',
 } %}
