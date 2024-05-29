@@ -1,8 +1,8 @@
 {% from "zsh/map.jinja" import zsh with context %}
 
-{% if salt.grains.get('os') == "Ubuntu" %}
+{% if zsh.supported_kernel %}
 
-{% for plugin in zsh.plugins.custom %}
+  {% for plugin in zsh.plugins.custom %}
 zsh-plugin-oh-my-zsh-install-{{ plugin.name }}:
   git.latest:
     - name: {{ plugin.url }}
@@ -10,6 +10,6 @@ zsh-plugin-oh-my-zsh-install-{{ plugin.name }}:
     - user: {{ zsh.user.name }}
     - rev: {{ plugin.release }}
     - depth: 1 # ensure just the last commit is important
-{% endfor %}
+  {% endfor %}
 
 {% endif %}

@@ -1,6 +1,6 @@
 {% from "zsh/map.jinja" import zsh with context %}
 
-{% if salt.grains.get('os') == "Ubuntu" %}
+{% if zsh.supported_kernel %}
 
 zsh-theme-powerlevel10k-install:
   git.latest:

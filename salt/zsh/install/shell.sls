@@ -1,7 +1,9 @@
-{% if salt.grains.get('os') == "Ubuntu" %}
+{% from "zsh/map.jinja" import zsh with context %}
 
-zsh-install-latest:
-  pkg.latest:
-    - name: zsh
+{% if zsh.supported_kernel %}
+
+zsh-install:
+  pkg.installed:
+    - pkgs: {{ zsh.pkgs }}
 
 {% endif %}

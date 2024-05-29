@@ -4,11 +4,21 @@
 {# ZSH #}
 {% set _zsh_by_kernel = salt['grains.filter_by']({
 
-  'Linux': {
-    'path': '/usr/bin/zsh',
+  'default': { },
+
+  'Darwin': {
+    'sh_script_shell': '/bin/bash',
+    'path': '/bin/zsh',
+    'pkgs': [ 'zsh', 'zsh-completions' ],
   },
 
-}, grain='kernel', default='Linux') %}
+  'Linux': {
+    'sh_script_shell': '/bin/bash',
+    'path': '/usr/bin/zsh',
+    'pkgs': [ 'zsh' ],
+  },
+
+}, grain='kernel') %}
 
 
 {# PLUGINS #}
@@ -34,3 +44,4 @@
 
 {# EXPOSE #}
 {% set zsh = salt.slsutil.merge(_zsh_by_kernel, _additional_data) %}
+{% do zsh.update({ 'supported_kernel': zsh.pkgs is defined }) %}
