@@ -1,5 +1,36 @@
-{% set zsh = salt['grains.filter_by']({
+{% from "personal/map.jinja" import account %}
+
+
+{# ZSH #}
+{% set _zsh_by_kernel = salt['grains.filter_by']({
+
   'Linux': {
     'path': '/usr/bin/zsh',
   },
+
 }, grain='kernel', default='Linux') %}
+
+
+{# PLUGINS #}
+{% set _custom_plugins_pillar = salt.pillar.get('zsh:plugins:custom', []) %}
+{% set _pillar_load = salt.pillar.get('zsh:plugins:load', []) %}
+{% set _custom_plugins_names = _custom_plugins_pillar | map(attribute='name') | list %}
+
+
+{# EXTRA #}
+{% set _additional_data = {
+  'user': {
+    'name': account.username,
+    'group': account.group,
+    'home': account.info.home,
+  },
+
+  'plugins': {
+    'custom': _custom_plugins_pillar,
+    'load': (_pillar_load + _custom_plugins_names),
+  },
+} %}
+
+
+{# EXPOSE #}
+{% set zsh = salt.slsutil.merge(_zsh_by_kernel, _additional_data) %}

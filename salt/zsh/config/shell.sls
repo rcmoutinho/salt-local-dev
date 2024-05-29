@@ -1,15 +1,14 @@
-{% from "personal/map.jinja" import account with context %}
 {% from "zsh/map.jinja" import zsh with context %}
 
 {% if salt.grains.get('os') == "Ubuntu" %}
 
-zsh-config-shell-as-default-for-{{ account.username }}:
+zsh-config-shell-as-default-for-{{ zsh.user.name }}:
   cmd.run:
-    - name: chsh -s {{ zsh.path }} {{ account.username }}
+    - name: chsh -s {{ zsh.path }} {{ zsh.user.name }}
     - unless:
       - fun: cmd.run
         cmd: grep "^$USER.*{{ zsh.path }}" /etc/passwd
-        runas: {{ account.username }}
+        runas: {{ zsh.user.name }}
         python_shell: True
         output_loglevel: quiet # prevent printing expected log errors
 
