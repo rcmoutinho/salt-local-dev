@@ -1,6 +1,6 @@
 {% from "python/pyenv/map.jinja" import pyenv with context %}
 
-{% if salt.grains.get('os') == "Ubuntu" %}
+{% if pyenv.supported_kernel %}
 
 python-pyenv-install-plugin-pyenv-doctor:
   git.latest:

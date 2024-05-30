@@ -1,6 +1,7 @@
 {% from "python/pyenv/map.jinja" import pyenv with context %}
 
-{% if salt.grains.get('os') == "Ubuntu" %}
+{% if pyenv.supported_kernel %}
+  {% if salt.grains.get('os') == "Ubuntu" %}
 
 # https://github.com/pyenv/pyenv/wiki#suggested-build-environment
 # https://realpython.com/intro-to-pyenv/
@@ -31,4 +32,11 @@ python-pyenv-install:
     - rev: v2.4.1
     - depth: 1 # ensure just the last commit is important
 
+  {% elif salt.grains.get('kernel') == "Darwin" %}
+
+python-pyenv-install:
+  pkg.installed:
+    - name: pyenv
+
+  {% endif %}
 {% endif %}

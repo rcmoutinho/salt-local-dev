@@ -24,3 +24,4 @@
 
 {# EXPOSE #}
 {% set pyenv = salt.slsutil.merge(_pyenv_pillar, _additional_data) %}
+{% do pyenv.update({ 'supported_kernel': salt.grains.get('os') == "Ubuntu" or salt.grains.get('kernel') == "Darwin" }) %}
