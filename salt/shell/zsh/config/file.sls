@@ -1,11 +1,11 @@
-{% from "zsh/map.jinja" import zsh with context %}
+{% from "shell/zsh/map.jinja" import zsh with context %}
 
 {% if zsh.supported_kernel %}
 
 zsh-config-zshrc-file:
   file.managed:
     - name: {{ zsh.user.home }}/.zshrc
-    - source: salt://zsh/config/files/.zshrc.jinja
+    - source: salt://shell/zsh/config/files/.zshrc.jinja
     - template: jinja
     - user: {{ zsh.user.name }}
     - group: {{ zsh.user.group }}

@@ -1,4 +1,4 @@
-{% from "zsh/map.jinja" import zsh with context %}
+{% from "shell/zsh/map.jinja" import zsh with context %}
 
 {% if zsh.supported_kernel %}
 

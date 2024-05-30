@@ -1,4 +1,4 @@
-{% from "zsh/map.jinja" import zsh with context %}
+{% from "shell/zsh/map.jinja" import zsh with context %}
 
 {% if zsh.supported_kernel %}
 
@@ -13,7 +13,7 @@ zsh-theme-powerlevel10k-install:
 zsh-theme-powerlevel10k-config:
   file.managed:
     - name: {{ zsh.user.home }}/.p10k.zsh
-    - source: salt://zsh/theme/files/.p10k.zsh
+    - source: salt://shell/zsh/theme/files/.p10k.zsh
     - user: {{ zsh.user.name }}
     - group: {{ zsh.user.group }}
     - mode: 0644

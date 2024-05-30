@@ -13,7 +13,7 @@ base:
     - vagrant
     - eza
     - python
-    - zsh
+    - shell
 
   G@kernel:Linux:
     - gdm
