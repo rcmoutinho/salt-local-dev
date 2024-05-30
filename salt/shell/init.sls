@@ -1,2 +1,3 @@
 include:
+  - .bash
   - .zsh
