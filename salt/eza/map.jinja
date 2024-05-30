@@ -1,0 +1,4 @@
+{# EXPOSE #}
+{% set eza = {
+  'supported_kernel': salt.grains.get('os') == "Ubuntu" or salt.grains.get('kernel') == "Darwin"
+} %}

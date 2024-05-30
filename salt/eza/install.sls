@@ -1,4 +1,7 @@
-{% if salt.grains.get('os') == "Ubuntu" %}
+{% from "eza/map.jinja" import eza with context %}
+
+{% if eza.supported_kernel %}
+  {% if salt.grains.get('os') == "Ubuntu" %}
 
 eza-add-apt-gpg-key: # favor gpg considering apt-key is depricated
   cmd.run:
@@ -11,10 +14,11 @@ eza-add-apt-repository:
     - file: /etc/apt/sources.list.d/gierens.list
     - refresh: True
     - require_in:
-      - pkg: eza-install-latest
+      - pkg: eza-install
+  {% endif %}
 
-eza-install-latest:
-  pkg.latest:
+eza-install:
+  pkg.installed:
     - name: eza
 
 {% endif %}
