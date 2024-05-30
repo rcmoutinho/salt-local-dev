@@ -5,7 +5,7 @@
 bash-config-profile-file:
   file.managed:
     - name: {{ bash.user.home }}/.profile
-    - source: salt://bash/config/files/.profile.jinja
+    - source: salt://shell/bash/config/files/.profile.jinja
     - template: jinja
     - user: {{ bash.user.name }}
     - group: {{ bash.user.group }}
