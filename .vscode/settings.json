@@ -1,6 +1,7 @@
 {
   "files.associations": {
     "*.conf.jinja": "jinja-properties",
+    ".profile.jinja": "jinja-shell",
     ".zshrc.jinja": "jinja-shell",
     ".zshrc.template": "shellscript",
     "gitconfig.jinja": "jinja-properties",
