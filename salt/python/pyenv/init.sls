@@ -1,5 +1,5 @@
 include:
   - .install
+  - .salt
   - .plugins
   - .versions
-  - .salt
