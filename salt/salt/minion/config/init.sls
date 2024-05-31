@@ -1,3 +1,2 @@
 include:
-  - .minion
-  - .masterless
+  - .files
