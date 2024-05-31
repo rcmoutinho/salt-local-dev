@@ -1,4 +1,5 @@
 {% from "personal/map.jinja" import account %}
+{% from "salt/minion/config/map.jinja" import config as salt_config %}
 
 {% set _pyenv_pillar = salt.pillar.get('python:pyenv', {}) %}
 
@@ -19,6 +20,8 @@
     'plugins': _pyenv_root + "/plugins",
   },
   'user': account.username,
+
+  'minion_conf_file': salt_config.directory + '/pyenv.conf'
 } %}
 
 
