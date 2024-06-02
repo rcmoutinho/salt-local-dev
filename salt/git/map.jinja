@@ -8,20 +8,10 @@
 
   'Darwin': {
     'pkg': 'git',
-    'config': {
-      'file': {
-        'path': account.info.home + '/.config/git/config'
-      }
-    }
   },
 
   'Linux': {
     'pkg': 'git-all',
-    'config': {
-      'file': {
-        'path': account.info.home + '/.gitconfig'
-      }
-    }
   },
 
 }, grain='kernel') %}
@@ -33,6 +23,7 @@
     'file': {
       'user': account.username,
       'group': account.group,
+      'path': account.info.home + '/.config/git/config',
     },
     'content': {
       'name': account.name,
