@@ -1,17 +1,17 @@
-{% from "personal/map.jinja" import account with context %}
+{% from "git/map.jinja" import git with context %}
 
-{% if salt.grains.get('os') == "Ubuntu" %}
+{% if git.supported_kernel %}
 
 git-config-gitconfig-file:
   file.managed:
-    - name: {{ account.info.home }}/.config/git/config
+    - name: {{ git.config.file.path }}
     - source: salt://git/files/gitconfig.jinja
     - template: jinja
     - makedirs: True
-    - user: {{ account.username }}
-    - group: {{ account.group }}
+    - user: {{ git.config.file.user }}
+    - group: {{ git.config.file.group }}
     - context:
-        name: {{ account.name }}
-        email: {{ account.email }}
+        name: {{ git.config.content.name }}
+        email: {{ git.config.content.email }}
 
 {% endif %}
