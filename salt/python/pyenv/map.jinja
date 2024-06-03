@@ -17,25 +17,27 @@
 
   'Darwin': {
     'path': {
-      'brew_version': '/usr/local/Cellar/pyenv/' + _pyenv_pillar.version,
-    }
+      'root': '/usr/local/Cellar/pyenv/' + _pyenv_pillar.version,
+    },
   },
 
   'Linux': {
     'git_rev': 'v' + _pyenv_pillar.version,
+    'path': {
+      'root': account.info.home + "/.pyenv",
+    },
   },
 
 }, grain='kernel') %}
 
 
 {# EXTRA #}
-{% set _pyenv_root = account.info.home + "/.pyenv" %}
 
 {% set _additional_data = {
   'path': {
-    'root': _pyenv_root,
-    'bin': _pyenv_root + "/bin",
-    'plugins': _pyenv_root + "/plugins",
+    'root': _pyenv_by_kernel.path.root,
+    'bin': _pyenv_by_kernel.path.root + "/bin",
+    'plugins': _pyenv_by_kernel.path.root + "/plugins",
   },
   'user': account.username,
 
