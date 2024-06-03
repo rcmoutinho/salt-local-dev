@@ -12,7 +12,7 @@ python-pyenv-doctor-check:
         output_loglevel: quiet # prevent printing expected log errors
         prepend_path: {{ pyenv.path.bin }}
 
-  {% for version in pyenv.versions %}
+  {% for version in pyenv.python_versions %}
 python-pyenv-versions-install-{{ version.name }}:
   pyenv.installed:
     - name: {{ version.name }}

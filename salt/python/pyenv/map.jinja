@@ -5,9 +5,27 @@
 
 
 {# VALIDATIONS #}
-{% if _pyenv_pillar.versions is not defined %}
-  {% do _pyenv_pillar.update({ 'versions': [] }) %}
+{% if _pyenv_pillar.python_versions is not defined %}
+  {% do _pyenv_pillar.update({ 'python_versions': [] }) %}
 {% endif %}
+
+
+{# PYENV #}
+{% set _pyenv_by_kernel = salt['grains.filter_by']({
+
+  'default': { },
+
+  'Darwin': {
+    'path': {
+      'brew_version': '/usr/local/Cellar/pyenv/' + _pyenv_pillar.version,
+    }
+  },
+
+  'Linux': {
+    'git_rev': 'v' + _pyenv_pillar.version,
+  },
+
+}, grain='kernel') %}
 
 
 {# EXTRA #}
@@ -24,7 +42,6 @@
   'minion_conf_file': salt_config.directory + '/pyenv.conf'
 } %}
 
-
 {# EXPOSE #}
-{% set pyenv = salt.slsutil.merge(_pyenv_pillar, _additional_data) %}
+{% set pyenv = salt.slsutil.merge_all([_pyenv_pillar, _pyenv_by_kernel, _additional_data]) %}
 {% do pyenv.update({ 'supported_kernel': salt.grains.get('os') == "Ubuntu" or salt.grains.get('kernel') == "Darwin" }) %}

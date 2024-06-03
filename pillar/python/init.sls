@@ -2,7 +2,9 @@
 
 python:
   pyenv:
-    versions:
+    version: 2.4.1
+
+    python_versions:
       - name: 3.10.14
       - name: 3.11.9
       - name: 3.12.3

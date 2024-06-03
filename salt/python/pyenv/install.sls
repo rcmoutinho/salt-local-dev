@@ -29,14 +29,16 @@ python-pyenv-install:
     - name: https://github.com/pyenv/pyenv.git
     - target: {{ pyenv.path.root }}
     - user: {{ pyenv.user }}
-    - rev: v2.4.1
+    - rev: {{ pyenv.git_rev }}
     - depth: 1 # ensure just the last commit is important
 
   {% elif salt.grains.get('kernel') == "Darwin" %}
 
+# https://formulae.brew.sh/formula/pyenv
 python-pyenv-install:
   pkg.installed:
     - name: pyenv
+    - version: {{ pyenv.version }}
 
   {% endif %}
 {% endif %}
