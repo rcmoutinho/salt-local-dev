@@ -9,6 +9,7 @@ This is not a complete and official guide on how to do a fresh install. The goal
   - [Reinstall macOS](#reinstall-macos)
 - [OS Configuration](#os-configuration)
   - [System Preferences](#system-preferences)
+  - [Terminal](#terminal)
 
 ## Trigger OS install
 
@@ -51,3 +52,16 @@ Here is everything I find helpful in configuring on top of the default configura
   - Point & Click
     - [X] Tap to click
     - Tracking speed 8 of 10
+- Dock & Menu Bar
+  - [ ] Show recent applications in Dock
+
+### Terminal
+
+With Terminal opened, go to Preferences:
+- Profiles
+  - Homebrew as default
+  - Change the font to “MesloLGS NL“, size 14
+
+> NOTE: I searched a bit but the effort might be too high to handle terminal configurations. Here are some references for potential automation:
+> - https://apple.stackexchange.com/questions/229049/change-font-of-terminal-programmatically-w-o-restarting
+> - https://apple.stackexchange.com/questions/246273/how-to-permamently-change-terminal-font-size-via-commandline-terminal
