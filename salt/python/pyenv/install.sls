@@ -34,6 +34,11 @@ python-pyenv-install:
 
   {% elif salt.grains.get('kernel') == "Darwin" %}
 
+python-pyenv-dependencies:
+  pkg.installed:
+    - pkgs:
+      - xz # https://github.com/orgs/Homebrew/discussions/5243
+
 # https://formulae.brew.sh/formula/pyenv
 python-pyenv-install:
   pkg.installed:
