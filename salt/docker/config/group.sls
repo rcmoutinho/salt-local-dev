@@ -1,12 +1,11 @@
-{% from "personal/map.jinja" import account with context %}
+{% from "docker/map.jinja" import docker with context %}
 
 {% if salt.grains.get('os') == "Ubuntu" %}
 
 docker-config-group:
   group.present:
     - name: docker
-    - addusers:
-      - {{ account.username }}
+    - addusers: {{ docker.addusers }}
 
 docker-config-message:
   test.succeed_with_changes:

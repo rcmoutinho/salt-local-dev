@@ -1,4 +1,7 @@
-{% if salt.grains.get('os') == "Ubuntu" %}
+{% from "docker/map.jinja" import docker with context %}
+
+{% if docker.supported_kernel %}
+  {% if salt.grains.get('os') == "Ubuntu" %}
 
 include:
   - utils
@@ -30,6 +33,14 @@ docker-install-latest:
       - docker-buildx-plugin
       - docker-compose-plugin
 
+  {% elif salt.grains.get('kernel') == "Darwin" %}
+
+docker-install:
+  pkg.installed:
+    - name: homebrew/cask/docker
+
+  {% endif %}
+
 docker-install-check:
   test.fail_without_changes:
     - name: "There is an issue when running a command in Docker. Check the installation."
@@ -37,5 +48,4 @@ docker-install-check:
       - fun: cmd.run
         cmd: docker run --rm hello-world
         output_loglevel: quiet # prevent printing expected log errors
-
 {% endif %}
