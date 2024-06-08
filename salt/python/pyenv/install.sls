@@ -24,6 +24,16 @@ python-pyenv-dependencies:
       - liblzma-dev
       - python3-openssl
 
+  {% elif salt.grains.get('kernel') == "Darwin" %}
+
+python-pyenv-dependencies:
+  pkg.installed:
+    - pkgs:
+      - readline
+      - xz # https://github.com/orgs/Homebrew/discussions/5243
+
+  {% endif %}
+
 python-pyenv-install:
   git.latest:
     - name: https://github.com/pyenv/pyenv.git
@@ -32,18 +42,4 @@ python-pyenv-install:
     - rev: {{ pyenv.git_rev }}
     - depth: 1 # ensure just the last commit is important
 
-  {% elif salt.grains.get('kernel') == "Darwin" %}
-
-python-pyenv-dependencies:
-  pkg.installed:
-    - pkgs:
-      - xz # https://github.com/orgs/Homebrew/discussions/5243
-
-# https://formulae.brew.sh/formula/pyenv
-python-pyenv-install:
-  pkg.installed:
-    - name: pyenv
-    - version: {{ pyenv.version }}
-
-  {% endif %}
 {% endif %}

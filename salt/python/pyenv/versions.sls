@@ -8,40 +8,18 @@ python-pyenv-doctor-check:
     - unless:
       - fun: cmd.run
         cmd: pyenv doctor
-        runas: {{ pyenv.user }}
+        runas: {{ pyenv.runas | default() }}
         output_loglevel: quiet # prevent printing expected log errors
         prepend_path: {{ pyenv.path.bin }}
 
   {% for version in pyenv.python_versions %}
 python-pyenv-versions-install-{{ version.name }}:
-  cmd.run:
-    - name: pyenv install {{ version.name }}
-    - runas: {{ pyenv.user }}
-    - unless:
-      - fun: cmd.run
-        cmd: pyenv versions | grep {{ version.name }}
-        runas: {{ pyenv.user }}
-        python_shell: True
-        output_loglevel: quiet # prevent printing expected log errors
-        prepend_path: {{ pyenv.path.bin }}
+  pyenv.installed:
+    - name: {{ version.name }}
+    - user: {{ pyenv.runas | default() }} # macOS only work when using salt process user (root in this case)
+    - default: {{ version.default | default(false) }}
     - require:
       - test: python-pyenv-doctor-check
-
-    {% if version.default | default(false) %}
-python-pyenv-versions-install-{{ version.name }}-default:
-  cmd.run:
-    - name: pyenv global {{ version.name }}
-    - runas: {{ pyenv.user }}
-    - unless:
-      - fun: cmd.run
-        cmd: pyenv global | grep {{ version.name }}
-        runas: {{ pyenv.user }}
-        python_shell: True
-        output_loglevel: quiet # prevent printing expected log errors
-        prepend_path: {{ pyenv.path.bin }}
-    - require:
-      - cmd: python-pyenv-versions-install-{{ version.name }}
-    {% endif %}
 
     {% if version.pip_pkgs is defined %}
 python-pyenv-versions-install-{{ version.name }}-pip:
@@ -50,8 +28,16 @@ python-pyenv-versions-install-{{ version.name }}-pip:
     - user: {{ pyenv.user }}
     - bin_env: {{ pyenv.path.root }}/versions/{{ version.name }}/bin
     - require:
-      - cmd: python-pyenv-versions-install-{{ version.name }}
+      - pyenv: python-pyenv-versions-install-{{ version.name }}
     {% endif %}
   {% endfor %}
+
+{# Ensure folder ownership to fix macOS runas limitation #}
+python-pyenv-versions-permissions:
+  file.directory:
+    - name: {{ pyenv.path.root }}/versions
+    - user: {{ pyenv.user }}
+    - recurse:
+      - user
 
 {% endif %}

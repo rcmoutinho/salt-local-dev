@@ -13,36 +13,28 @@
 {# PYENV #}
 {% set _pyenv_by_kernel = salt['grains.filter_by']({
 
-  'default': { },
-
-  'Darwin': {
-    'path': {
-      'root': '/usr/local/Cellar/pyenv/' + _pyenv_pillar.version,
-    },
+  'default': {
+    'runas': account.username,
   },
 
-  'Linux': {
-    'git_rev': 'v' + _pyenv_pillar.version,
-    'path': {
-      'root': account.info.home + "/.pyenv",
-    },
-  },
+  'Darwin': { },
 
 }, grain='kernel') %}
 
 
 {# EXTRA #}
-
+{% set _root_path = account.info.home + "/.pyenv" %}
 {% set _additional_data = {
   'path': {
-    'root': _pyenv_by_kernel.path.root,
-    'bin': _pyenv_by_kernel.path.root + "/bin",
-    'plugins': _pyenv_by_kernel.path.root + "/plugins",
+    'root': _root_path,
+    'bin': _root_path + "/bin",
+    'plugins': _root_path + "/plugins",
   },
   'user': account.username,
-
+  'git_rev': 'v' + _pyenv_pillar.version,
   'minion_conf_file': salt_config.directory + '/pyenv.conf'
 } %}
+
 
 {# EXPOSE #}
 {% set pyenv = salt.slsutil.merge_all([_pyenv_pillar, _pyenv_by_kernel, _additional_data]) %}
