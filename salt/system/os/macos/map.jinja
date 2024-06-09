@@ -1,7 +1,8 @@
 {% from "personal/map.jinja" import account %}
 
 {# EXPOSE #}
-{% set mas = {
-  'install': salt.pillar.get('macos:mac_app_store:install', []),
+{% set macos = {
+  'mas': salt.pillar.get('macos:mac_app_store:install'),
+  'defaults': salt.pillar.get('macos:defaults'),
   'runas': account.username,
 } %}

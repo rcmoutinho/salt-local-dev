@@ -1,4 +1,4 @@
-{% from "system/os/macos/map.jinja" import mas with context %}
+{% from "system/os/macos/map.jinja" import macos with context %}
 
 {% if salt.grains.get('kernel') == "Darwin" %}
 
@@ -7,16 +7,16 @@ mac-app-store-cli-install:
   pkg.installed:
     - name: mas
 
-  {% for app in mas.install %}
+  {% for app in macos.mas %}
 
 mac-app-store-install-{{ app }}:
   cmd.run:
     - name: mas install {{ app }}
-    - runas: {{ mas.runas }}
+    - runas: {{ macos.runas }}
     - unless:
       - fun: cmd.run
         cmd: mas list | grep {{ app }}
-        runas: {{ mas.runas }}
+        runas: {{ macos.runas }}
         python_shell: True
         output_loglevel: quiet # prevent printing expected log errors
     - require:
