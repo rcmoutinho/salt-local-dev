@@ -1,0 +1,22 @@
+{% from "personal/map.jinja" import account %}
+
+{# EXPOSE #}
+{% set defaults = {
+  'domains': {
+    'com.apple.dock': {
+      'killall': 'Dock',
+      'config': {
+        'tilesize': {
+          'type': '-int',
+          'value': '45',
+        },
+        'autohide': {
+          'type': '-int',
+          'value': '0',
+        },
+      }
+    },
+  },
+
+  'runas': account.username,
+} %}

@@ -77,8 +77,8 @@ The project uses a [Salt Masterless](https://docs.saltproject.io/en/latest/topic
     - Extra fonts
     - [eza](https://eza.rocks/) _(alternative for `ls` command)_
     - [mas](https://github.com/mas-cli/mas) _(command line interface for the Mac App Store)_
+    - System defaults
   - Documentation about a few manual configurations
-  - _More Coming soon ( as I have time :smile: )_
 
 </details>
 
