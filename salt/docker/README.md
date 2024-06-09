@@ -1,11 +1,16 @@
 # Docker <!-- omit in toc -->
 
 - [Troubleshooting](#troubleshooting)
+  - [macOS](#macos)
 - [References](#references)
 
 ## Troubleshooting
 
 After the initial execution, you might need to log out or restart your machine to apply all related changes.
+
+### macOS
+
+You might need to confirm some information once the Desktop App opens. Just follow the steps to finish the process.
 
 ## References
 
