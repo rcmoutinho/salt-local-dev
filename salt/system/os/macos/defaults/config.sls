@@ -15,10 +15,12 @@ macos-defaults-{{ domain_key }}-{{ config_key }}:
         output_loglevel: quiet # prevent printing expected log errors
     {% endfor %}
 
+    {% if domain.killall is defined %}
 macos-{{ domain_key }}-reset:
   cmd.run:
     - name: killall {{ domain.killall }}
     - onchanges:
       - cmd: macos-defaults-{{ domain_key }}-*
+    {% endif %}
   {% endfor %}
 {% endif %}

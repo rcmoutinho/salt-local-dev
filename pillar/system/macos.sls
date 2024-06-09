@@ -21,3 +21,6 @@ macos:
         autohide:
           type: -int
           value: 0
+        show-recents:
+          type: -int
+          value: 0

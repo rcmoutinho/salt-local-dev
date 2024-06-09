@@ -52,8 +52,6 @@ Here is everything I find helpful in configuring on top of the default configura
   - Point & Click
     - [X] Tap to click
     - Tracking speed 8 of 10
-- Dock & Menu Bar
-  - [ ] Show recent applications in Dock
 
 ### Terminal
 
