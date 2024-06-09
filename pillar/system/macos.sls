@@ -9,4 +9,4 @@ macos:
     # NOTE: It will only consider apps already downloaded in the past
     # If you never downloaded, you will need to do it before trying this
     install:
-      - 1333542190 # 1Password 7 - Password Manager
+      # - 1333542190 # 1Password 7 - Password Manager
