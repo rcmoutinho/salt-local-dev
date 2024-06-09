@@ -1,3 +1,4 @@
 include:
   - .group
   - .daemon
+  - .app
