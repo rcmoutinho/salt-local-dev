@@ -17,4 +17,11 @@ vagrant-install-latest:
   pkg.latest:
     - name: vagrant
 
+{% elif salt.grains.get('kernel') == "Darwin" %}
+
+# https://formulae.brew.sh/cask/vagrant
+vagrant-install:
+  pkg.installed:
+    - name: homebrew/cask/vagrant
+
 {% endif %}
