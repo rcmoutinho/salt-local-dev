@@ -43,6 +43,7 @@ The project uses a [Salt Masterless](https://docs.saltproject.io/en/latest/topic
     - [jq](https://jqlang.github.io/jq/)
     - tree
     - vim
+    - wget
   - Extra
     - GDM (GNOME Display Manager) + configs
     - GRUB Customizer
@@ -54,7 +55,30 @@ The project uses a [Salt Masterless](https://docs.saltproject.io/en/latest/topic
   _Coming soon ( as I have time :smile: )_
 
   ### macOS <!-- omit in toc -->
-  _Coming soon ( as I have time :smile: )_
+  - [GIT](https://git-scm.com/) + configs
+  - [Visual Studio Code](https://code.visualstudio.com/) + extensions
+  - [Docker](https://www.docker.com/)
+  - Terminal using [Zsh](https://www.zsh.org/) + configs + theme + plugins
+  - [Python](https://www.python.org/) + [Ruff](https://astral.sh/ruff) + [UV](https://astral.sh/uv)
+  - Hypervisors
+    - [Virtualbox](https://www.virtualbox.org/)
+  - [Vagrant](https://www.vagrantup.com/)
+  - General Tools
+    - [1Password](https://1password.com/)
+    - [Spotify](https://open.spotify.com/)
+    - Google Chrome
+  - General packages
+    - curl
+    - [jq](https://jqlang.github.io/jq/)
+    - tree
+    - vim
+    - wget
+  - Extra
+    - Extra fonts
+    - [eza](https://eza.rocks/) _(alternative for `ls` command)_
+    - [mas](https://github.com/mas-cli/mas) _(command line interface for the Mac App Store)_
+  - Documentation about a few manual configurations
+  - _More Coming soon ( as I have time :smile: )_
 
 </details>
 
