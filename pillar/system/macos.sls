@@ -9,7 +9,7 @@ macos:
     # NOTE: It will only consider apps already downloaded in the past
     # If you never downloaded, you will need to do it before trying this
     install:
-      - 1339170533 # CleanMyMac X       # FIXME get
+      - 1339170533 # CleanMyMac X
       - 302584613  # Kindle
       - 905953485  # NordVPN - VPN for privacy
       - 1289583905 # Pixelmator Pro
@@ -21,8 +21,8 @@ macos:
 
       # Office 365 / Microsoft
       - 823766827  # OneDrive
-      - 462054704  # Microsoft Word     # FIXME get
-      - 462058435  # Microsoft Excel    # FIXME get
+      - 462054704  # Microsoft Word
+      - 462058435  # Microsoft Excel
       - 1295203466 # Microsoft Remote Desktop
 
   defaults:
