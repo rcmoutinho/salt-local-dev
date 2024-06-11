@@ -38,3 +38,23 @@ macos:
         show-recents:
           type: -int
           value: 0
+
+  dock:
+    remove_default:
+      - Safari
+      - Messages
+      - Mail
+      - Maps
+      - Photos
+      - FaceTime
+      - Contacts
+      - TV
+      - Music
+      - Podcasts
+      - News
+
+    # define order via /Users/<user>/Library/Preferences/com.apple.dock.plist
+    define:
+      # Finder as first icon (/System/Library/CoreServices/Finder.app)
+      - /System/Applications/Launchpad.app
+      # Trash always the last one

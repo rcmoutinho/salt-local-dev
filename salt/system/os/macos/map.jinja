@@ -4,5 +4,6 @@
 {% set macos = {
   'mas': salt.pillar.get('macos:mac_app_store:install'),
   'defaults': salt.pillar.get('macos:defaults'),
+  'dock': salt.pillar.get('macos:dock'),
   'runas': account.username,
 } %}
