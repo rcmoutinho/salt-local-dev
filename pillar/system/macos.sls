@@ -55,6 +55,16 @@ macos:
 
     # define order via /Users/<user>/Library/Preferences/com.apple.dock.plist
     define:
-      # Finder as first icon (/System/Library/CoreServices/Finder.app)
-      - /System/Applications/Launchpad.app
-      # Trash always the last one
+      apps:
+        # Finder (/System/Library/CoreServices/Finder.app)
+        - /System/Applications/Launchpad.app
+        - /System/Applications/App Store.app
+        - /System/Applications/Calendar.app
+        - /System/Applications/Reminders.app
+        - /System/Applications/Notes.app
+        - /System/Applications/System Preferences.app
+        - /System/Applications/Utilities/Terminal.app
+        - /Applications/Visual Studio Code.app
+        - /Applications/Google Chrome.app
+      others:
+        - ~/Downloads

@@ -23,22 +23,25 @@ dockutil-remove-{{ app }}:
 
   {% endfor %}
 
-{# Ensure the define section will get the correct order after removing apps #}
+# Ensure the define section will get the correct order after removing apps
 dockutil-restart-dock-after-remove:
   cmd.run:
     - name: killall Dock
     - onchanges:
       - cmd: dockutil-remove-*
 
-  {% for app in macos.dock.define %}
+  {% for app in macos.dock.define.apps %}
 
 dockutil-define-{{ app }}:
   cmd.run:
-    - name: dockutil --add {{ app }}
+    # First, try to add. If it exists, but in the wrong position, move it to the desired place.
+    - name: |
+        dockutil --add "{{ app }}" --position {{ loop.index }} --section apps || \
+        dockutil --move "{{ app }}" --position {{ loop.index }} --section apps
     - runas: {{ macos.runas }}
     - unless:
       - fun: cmd.run
-        cmd: dockutil --find {{ app }} | grep 'at slot {{ loop.index }}'
+        cmd: dockutil --find "{{ app }}" | grep 'at slot {{ loop.index }}'
         runas: {{ macos.runas }}
         python_shell: True
         output_loglevel: quiet # prevent printing expected log errors
