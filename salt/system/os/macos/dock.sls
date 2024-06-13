@@ -32,7 +32,7 @@ dockutil-restart-dock-after-remove:
 
   {% for app in macos.dock.define.apps %}
 
-dockutil-define-{{ app }}:
+dockutil-define-apps-{{ app }}:
   cmd.run:
     # First, try to add. If it exists, but in the wrong position, move it to the desired place.
     - name: |
@@ -42,6 +42,27 @@ dockutil-define-{{ app }}:
     - unless:
       - fun: cmd.run
         cmd: dockutil --find "{{ app }}" | grep 'at slot {{ loop.index }}'
+        runas: {{ macos.runas }}
+        python_shell: True
+        output_loglevel: quiet # prevent printing expected log errors
+    - require:
+      - pkg: dockutil-cli-install
+
+  {% endfor %}
+
+  {% for app in macos.dock.define.others %}
+    {% set item = app | regex_replace('^~', macos.homedir) %}
+
+dockutil-define-others-{{ item }}:
+  cmd.run:
+    # First, try to add. If it exists, but in the wrong position, move it to the desired place.
+    - name: |
+        dockutil --add "{{ item }}" --position {{ loop.index }} --section others || \
+        dockutil --move "{{ item }}" --position {{ loop.index }} --section others
+    - runas: {{ macos.runas }}
+    - unless:
+      - fun: cmd.run
+        cmd: dockutil --find "{{ item }}" | grep 'at slot {{ loop.index }}'
         runas: {{ macos.runas }}
         python_shell: True
         output_loglevel: quiet # prevent printing expected log errors

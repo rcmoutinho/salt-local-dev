@@ -6,4 +6,5 @@
   'defaults': salt.pillar.get('macos:defaults'),
   'dock': salt.pillar.get('macos:dock'),
   'runas': account.username,
+  'homedir': account.info.home,
 } %}
