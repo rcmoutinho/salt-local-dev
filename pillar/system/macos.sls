@@ -38,6 +38,18 @@ macos:
         show-recents:
           type: -int
           value: 0
+    NSGlobalDomain:
+      killall: Finder
+      config:
+        AppleShowAllExtensions:
+          type: -int
+          value: 1
+    com.apple.finder:
+      killall: Finder
+      config:
+        AppleShowAllFiles:
+          type: -int
+          value: 1
 
   dock:
     remove_default:
