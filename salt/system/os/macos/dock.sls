@@ -71,4 +71,32 @@ dockutil-define-others-{{ item }}:
 
   {% endfor %}
 
+dockutil-remove-all-spacer-apps:
+  cmd.run:
+    - name: dockutil --remove spacer-tiles --section apps
+    - runas: {{ macos.runas }}
+    - require:
+      - pkg: dockutil-cli-install
+
+dockutil-remove-all-spacer-others:
+  cmd.run:
+    - name: dockutil --remove spacer-tiles --section others
+    - runas: {{ macos.runas }}
+    - require:
+      - pkg: dockutil-cli-install
+
+  {% for item in macos.dock.spacer.list %}
+
+dockutil-define-spacer-after-{{ item.after }}:
+  cmd.run:
+    - name: |
+        dockutil --add '' --type {{ item.type | default(macos.dock.spacer.default.type) }} \
+        --section {{ item.section | default(macos.dock.spacer.default.section) }} \
+        --after "{{ item.after }}"
+    - runas: {{ macos.runas }}
+    - require:
+      - pkg: dockutil-cli-install
+
+  {% endfor %}
+
 {% endif %}

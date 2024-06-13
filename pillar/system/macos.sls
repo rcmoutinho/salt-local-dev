@@ -68,3 +68,12 @@ macos:
         - /Applications/Google Chrome.app
       others:
         - ~/Downloads
+
+    spacer:
+      default:
+        type: small-spacer # spacer|small-spacer|flex-spacer
+        section: apps # apps | others
+      list:
+        - after: /System/Applications/System Preferences.app
+        - after: /Applications/Visual Studio Code.app
+
