@@ -65,8 +65,35 @@ The project uses a [Salt Masterless](https://docs.saltproject.io/en/latest/topic
   - [Vagrant](https://www.vagrantup.com/)
   - General Tools
     - [1Password](https://1password.com/)
+    - [Adobe Acrobat Reader](https://acrobat.adobe.com/us/en/acrobat/pdf-reader.html)
+    - [BalenaEtcher](https://balena.io/etcher)
+    - [Camtasia](https://www.techsmith.com/video-editor.html)
+    - [CleanMyMac X](https://cleanmymac.com/)
+    - [Discord](https://discord.com/)
+    - [Divvy](https://mizage.com/divvy/)
+    - [Google Drive](https://www.google.com/drive/)
+    - [Google Chrome](https://www.google.com/intl/en_ca/chrome/)
+    - [Imageoptim](https://imageoptim.com/mac)
+    - [Keka](https://www.keka.io/)
+    - [Kindle](https://apps.apple.com/us/app/amazon-kindle/id302584613)
+    - [NordVPN](https://nordvpn.com/)
+    - [Notion](https://www.notion.so/)
+    - [Office 365 / Microsoft](https://www.office.com/)
+      - OneDrive
+      - Microsoft Word
+      - Microsoft Excel
+      - Microsoft Remote Desktop
+    - [Paragon NTFS for Mac)](https://www.paragon-software.com/home/ntfs-mac/)
+    - [Pixelmator Pro](https://www.pixelmator.com/pro/)
+    - [Postman](https://www.postman.com/)
+    - [Raspberry PI Imager](https://www.raspberrypi.org/downloads/)
     - [Spotify](https://open.spotify.com/)
-    - Google Chrome
+    - [Telegram](https://telegram.org/)
+    - [The Unarchiver](https://theunarchiver.com/)
+    - [Vlc](https://www.videolan.org/vlc/)
+    - [Vuescan](https://www.hamrick.com/)
+    - [WhatsApp Messenger](https://www.whatsapp.com/)
+    - [Zoom](https://www.zoom.us/)
   - General packages
     - curl
     - [jq](https://jqlang.github.io/jq/)
