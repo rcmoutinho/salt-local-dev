@@ -28,9 +28,20 @@ macos:
   apps:
     - homebrew/cask/1password # https://formulae.brew.sh/cask/1password
     - homebrew/cask/adobe-acrobat-reader # https://formulae.brew.sh/cask/adobe-acrobat-reader
+    - homebrew/cask/balenaetcher # https://formulae.brew.sh/cask/balenaetcher
+    - homebrew/cask/camtasia # https://formulae.brew.sh/cask/camtasia
     - homebrew/cask/discord # https://formulae.brew.sh/cask/discord
+    - homebrew/cask/divvy # https://formulae.brew.sh/cask/divvy
     - homebrew/cask/google-drive # https://formulae.brew.sh/cask/google-drive
+    - homebrew/cask/imageoptim # https://formulae.brew.sh/cask/imageoptim
+    - homebrew/cask/keka # https://formulae.brew.sh/cask/keka
+    - homebrew/cask/notion # https://formulae.brew.sh/cask/notion
+    - homebrew/cask/paragon-ntfs # https://formulae.brew.sh/cask/paragon-ntfs (NTFS for Mac)
+    - homebrew/cask/postman # https://formulae.brew.sh/cask/postman
+    - homebrew/cask/raspberry-pi-imager # https://formulae.brew.sh/cask/raspberry-pi-imager
     - homebrew/cask/spotify # https://formulae.brew.sh/cask/spotify
+    - homebrew/cask/vlc # https://formulae.brew.sh/cask/vlc
+    - homebrew/cask/vuescan # https://formulae.brew.sh/cask/vuescan
     - homebrew/cask/zoom # https://formulae.brew.sh/cask/zoom
 
   defaults:
@@ -135,4 +146,3 @@ macos:
       list:
         - after: /System/Applications/System Preferences.app
         - after: /Applications/Visual Studio Code.app
-
