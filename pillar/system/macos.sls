@@ -25,6 +25,14 @@ macos:
       - 462058435  # Microsoft Excel
       - 1295203466 # Microsoft Remote Desktop
 
+  apps:
+    - homebrew/cask/1password # https://formulae.brew.sh/cask/1password
+    - homebrew/cask/adobe-acrobat-reader # https://formulae.brew.sh/cask/adobe-acrobat-reader
+    - homebrew/cask/discord # https://formulae.brew.sh/cask/discord
+    - homebrew/cask/google-drive # https://formulae.brew.sh/cask/google-drive
+    - homebrew/cask/spotify # https://formulae.brew.sh/cask/spotify
+    - homebrew/cask/zoom # https://formulae.brew.sh/cask/zoom
+
   defaults:
 
     #################### Dock

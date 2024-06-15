@@ -41,11 +41,4 @@
   pkg.latest:
     - name: 1password
 
-{% elif salt.grains.get('kernel') == "Darwin" %}
-
-# https://formulae.brew.sh/cask/1password
-1password-install:
-  pkg.installed:
-    - name: homebrew/cask/1password
-
 {% endif %}
