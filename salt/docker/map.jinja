@@ -1,0 +1,25 @@
+{% from "personal/map.jinja" import account with context %}
+
+
+{# DOCKER #}
+{% set _docker_by_kernel = salt['grains.filter_by']({
+
+  'default': { },
+
+  'Darwin': { },
+
+  'Linux': { },
+
+}, grain='kernel') %}
+
+
+{# EXTRA #}
+{% set _additional_data = {
+  'addusers': [ account.username ],
+
+  'supported_kernel': salt.grains.get('os') == "Ubuntu" or salt.grains.get('kernel') == "Darwin",
+} %}
+
+
+{# EXPOSE #}
+{% set docker = salt.slsutil.merge(_docker_by_kernel, _additional_data) %}

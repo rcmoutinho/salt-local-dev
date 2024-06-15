@@ -10,4 +10,15 @@ utils-packages-install:
       - tree
       - vim
 
+{% elif salt.grains.get('kernel') == "Darwin" %}
+
+utils-packages-install:
+  pkg.installed:
+    - pkgs:
+      - wget
+      - curl
+      - jq
+      - tree
+      - vim
+
 {% endif %}

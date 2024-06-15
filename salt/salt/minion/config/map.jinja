@@ -5,6 +5,10 @@
   'Darwin': {
     'directory': '/etc/salt/minion.d',
 
+    'absent': {
+      'minion_default': '/etc/salt/minion'
+    },
+
     'minion': {
       'file': '/etc/salt/minion.d/minion.conf',
       'source': 'salt://salt/minion/config/files/minion.d/minion.conf.jinja',
@@ -18,6 +22,10 @@
 
   'Linux': {
     'directory': '/etc/salt/minion.d',
+
+    'absent': {
+      'minion_default': '/etc/salt/minion'
+    },
 
     'minion': {
       'file': '/etc/salt/minion.d/minion.conf',

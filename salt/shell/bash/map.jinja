@@ -1,0 +1,14 @@
+{% from "personal/map.jinja" import account %}
+
+{# EXPOSE #}
+{% set bash = {
+
+  'user': {
+    'name': account.username,
+    'group': account.group,
+    'home': account.info.home,
+  },
+
+  'supported_kernel': salt.grains.get('kernel') == "Darwin"
+
+} %}

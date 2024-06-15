@@ -1,2 +1,27 @@
-{% set fonts = salt.pillar.get('fonts') %}
+{% from "personal/map.jinja" import account with context %}
+
+{# FONTS #}
+{% set _fonts_pillar = salt.pillar.get('fonts') %}
+{% set _fonts_by_kernel = salt['grains.filter_by']({
+
+  'default': { },
+
+  'Linux': {
+    'folder': account.info.home + '/.local/share/fonts',
+  },
+
+}, grain='kernel') %}
+
+
+{# EXTRA #}
+{% set _additional_data = {
+  'user': account.username,
+  'group': account.group,
+} %}
+
+
+{# EXPOSE #}
+{% set fonts = salt.slsutil.merge_all([_fonts_pillar, _fonts_by_kernel, _additional_data]) %}
+{% do fonts.update({ 'supported_kernel': fonts.pkgs is defined }) %}
+
 {% set update = salt.pillar.get('update', false) %}

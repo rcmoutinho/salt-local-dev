@@ -1,1 +1,30 @@
-{% set extensions = salt.pillar.get('vscode:extensions') %}
+{% from "personal/map.jinja" import account with context %}
+
+
+{# VSCode #}
+{% set _vscode_by_kernel = salt['grains.filter_by']({
+
+  'default': { },
+
+  'Darwin': {
+    'home': account.info.home + '/Library/Application Support/Code',
+  },
+
+  'Linux': {
+    'home': account.info.home + '/.config/Code',
+  },
+
+}, grain='kernel') %}
+
+
+{# EXTRA #}
+{% set _additional_data = {
+  'user': account.username,
+  'extensions': salt.pillar.get('vscode:extensions', []),
+
+  'supported_kernel': salt.grains.get('os') == "Ubuntu" or salt.grains.get('kernel') == "Darwin",
+} %}
+
+
+{# EXPOSE #}
+{% set vscode = salt.slsutil.merge(_vscode_by_kernel, _additional_data) %}

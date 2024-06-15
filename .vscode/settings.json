@@ -1,9 +1,12 @@
 {
   "files.associations": {
     "*.conf.jinja": "jinja-properties",
+    ".bashrc.jinja": "jinja-shell",
+    ".profile.jinja": "jinja-shell",
     ".zshrc.jinja": "jinja-shell",
     ".zshrc.template": "shellscript",
     "gitconfig.jinja": "jinja-properties",
+    "minion.template": "jinja-properties",
     "Saltfile.template": "yaml",
   }
 }

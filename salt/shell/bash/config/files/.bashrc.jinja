@@ -1,0 +1,21 @@
+## CUSTOM
+
+################ TERMINAL ###################
+
+# adjust terminal prefix
+export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;33m\]\h as \e[4m\u\e[0m (LOCAL)\[\033[00m\] $PWD\n$ '
+export PROMPT_COMMAND="export PROMPT_COMMAND=echo"
+
+# more about PS1 variables
+# \u : the username of the current user
+# \h : the hostname up to the first ‘.’
+## \H : the hostname
+# \W : the basename of the current working directory, with $HOME abbreviated with a tilde
+## \w : the current working directory, with $HOME abbreviated with a tilde
+# https://ss64.com/bash/syntax-prompt.html
+
+
+################ PYENV ###################
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"

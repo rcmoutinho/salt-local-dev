@@ -1,6 +1,6 @@
 {% from "python/pyenv/map.jinja" import pyenv with context %}
 
-{% if salt.grains.get('os') == "Ubuntu" %}
+{% if pyenv.supported_kernel %}
 
 python-pyenv-doctor-check:
   test.fail_without_changes:
@@ -8,15 +8,15 @@ python-pyenv-doctor-check:
     - unless:
       - fun: cmd.run
         cmd: pyenv doctor
-        runas: {{ pyenv.user }}
+        runas: {{ pyenv.runas | default() }}
         output_loglevel: quiet # prevent printing expected log errors
         prepend_path: {{ pyenv.path.bin }}
 
-  {% for version in pyenv.versions %}
+  {% for version in pyenv.python_versions %}
 python-pyenv-versions-install-{{ version.name }}:
   pyenv.installed:
     - name: {{ version.name }}
-    - user: {{ pyenv.user }}
+    - user: {{ pyenv.runas | default() }} # macOS only work when using salt process user (root in this case)
     - default: {{ version.default | default(false) }}
     - require:
       - test: python-pyenv-doctor-check
@@ -31,5 +31,13 @@ python-pyenv-versions-install-{{ version.name }}-pip:
       - pyenv: python-pyenv-versions-install-{{ version.name }}
     {% endif %}
   {% endfor %}
+
+{# Ensure folder ownership to fix macOS runas limitation #}
+python-pyenv-versions-permissions:
+  file.directory:
+    - name: {{ pyenv.path.root }}/versions
+    - user: {{ pyenv.user }}
+    - recurse:
+      - user
 
 {% endif %}

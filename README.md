@@ -5,6 +5,7 @@
   - [By Operational Systems](#by-operational-systems)
   - [Basic testing](#basic-testing)
 - [Setup the project](#setup-the-project)
+  - [Configure Saltfile (Optional)](#configure-saltfile-optional)
   - [Configure personal data](#configure-personal-data)
   - [Configure GPG keys (Optional)](#configure-gpg-keys-optional)
   - [Configure Masterless](#configure-masterless)
@@ -42,6 +43,7 @@ The project uses a [Salt Masterless](https://docs.saltproject.io/en/latest/topic
     - [jq](https://jqlang.github.io/jq/)
     - tree
     - vim
+    - wget
   - Extra
     - GDM (GNOME Display Manager) + configs
     - GRUB Customizer
@@ -53,7 +55,57 @@ The project uses a [Salt Masterless](https://docs.saltproject.io/en/latest/topic
   _Coming soon ( as I have time :smile: )_
 
   ### macOS <!-- omit in toc -->
-  _Coming soon ( as I have time :smile: )_
+  - [GIT](https://git-scm.com/) + configs
+  - [Visual Studio Code](https://code.visualstudio.com/) + extensions
+  - [Docker](https://www.docker.com/)
+  - Terminal using [Zsh](https://www.zsh.org/) + configs + theme + plugins
+  - [Python](https://www.python.org/) + [Ruff](https://astral.sh/ruff) + [UV](https://astral.sh/uv)
+  - Hypervisors
+    - [Virtualbox](https://www.virtualbox.org/)
+  - [Vagrant](https://www.vagrantup.com/)
+  - General Tools
+    - [1Password](https://1password.com/)
+    - [Adobe Acrobat Reader](https://acrobat.adobe.com/us/en/acrobat/pdf-reader.html)
+    - [BalenaEtcher](https://balena.io/etcher)
+    - [Camtasia](https://www.techsmith.com/video-editor.html)
+    - [CleanMyMac X](https://cleanmymac.com/)
+    - [Discord](https://discord.com/)
+    - [Divvy](https://mizage.com/divvy/)
+    - [Google Drive](https://www.google.com/drive/)
+    - [Google Chrome](https://www.google.com/intl/en_ca/chrome/)
+    - [Imageoptim](https://imageoptim.com/mac)
+    - [Keka](https://www.keka.io/)
+    - [Kindle](https://apps.apple.com/us/app/amazon-kindle/id302584613)
+    - [NordVPN](https://nordvpn.com/)
+    - [Notion](https://www.notion.so/)
+    - [Office 365 / Microsoft](https://www.office.com/)
+      - OneDrive
+      - Microsoft Word
+      - Microsoft Excel
+      - Microsoft Remote Desktop
+    - [Paragon NTFS for Mac)](https://www.paragon-software.com/home/ntfs-mac/)
+    - [Pixelmator Pro](https://www.pixelmator.com/pro/)
+    - [Postman](https://www.postman.com/)
+    - [Raspberry PI Imager](https://www.raspberrypi.org/downloads/)
+    - [Spotify](https://open.spotify.com/)
+    - [Telegram](https://telegram.org/)
+    - [The Unarchiver](https://theunarchiver.com/)
+    - [Vlc](https://www.videolan.org/vlc/)
+    - [Vuescan](https://www.hamrick.com/)
+    - [WhatsApp Messenger](https://www.whatsapp.com/)
+    - [Zoom](https://www.zoom.us/)
+  - General packages
+    - curl
+    - [jq](https://jqlang.github.io/jq/)
+    - tree
+    - vim
+    - wget
+  - Extra
+    - Extra fonts
+    - [eza](https://eza.rocks/) _(alternative for `ls` command)_
+    - [mas](https://github.com/mas-cli/mas) _(command line interface for the Mac App Store)_
+    - System defaults
+  - Documentation about a few manual configurations
 
 </details>
 
@@ -147,9 +199,13 @@ The Masterless approach means that instead of connecting to a Salt master to col
 
 It's possible to force local calls using the argument `--local` and many other specific configurations, but using a [Saltfile](https://docs.saltproject.io/salt/install-guide/en/latest/topics/configure-master-minion.html#saltfile) makes everything WAY simpler in this scenario.
 
+### Configure Saltfile (Optional)
+
 Duplicate the reference [Saltfile.template](./Saltfile.template), in the root of this project, into [Saltfile](./Saltfile) and define all the specific configurations you have. This configuration will help you typing less arguments when executing commands from the root of the project.
 
-> **Advanced:** In case you want to make this permanent to your user for any salt project, you could move the file to `~/.salt/Saltfile`, but considering you are always using `sudo`, it will favor `root` user references. You can change the [user minion configuration](https://docs.saltproject.io/en/latest/ref/configuration/minion.html#user) to not use `root`, but this can be a bit advanced for a simple setup we want here.
+Depending on the OS _(for example, macOS)_, it will only work when saving the file under `~/.salt/Saltfile`. However, for other OS, _like Ubuntu_, this approach might not work because you always use `sudo`, which favors `root` user references. You can change the [user minion configuration](https://docs.saltproject.io/en/latest/ref/configuration/minion.html#user) not to use `root`, but this can be a bit advanced for a simple setup we want here.
+
+Regardless of your choice, we can apply the salt minion state later to make the `file_client` configuration permanent.
 
 ### Configure personal data
 
@@ -174,15 +230,25 @@ sudo gpg --homedir /etc/salt/gpgkeys --gen-key
 
 ### Configure Masterless
 
-Once you have your [Saltfile](./Saltfile) configured, you can now run the salt minion state to make masterless definitions permament. This would be optional in a way but it make simpler to ensure all the configurations you have for your salt setup.
+You can now run the salt minion state to make masterless definitions permament. This would be optional in a way but it make simpler to ensure all the configurations you have for your salt setup.
 
 ```bash
+# with Saltfile configured
 sudo salt-call state.sls salt.minion
+
+# without Saltfile configured
+sudo salt-call --local --file-root /path/to/my/project/salt --pillar-root /path/to/my/project/pillar state.sls salt.minion
 ```
+
+If you get an error like `No matching sls found for 'salt.minion' in env 'base'`. Please check your Saltfile or arguments regarding the file and pillar root. It must point correctly to the [salt](./salt/) and [pillar](./pillar/) folders from this project.
+
+You will also get errors regarding missing the personal pillar folder if you haven't configured it [based on the template](pillar/personal.template/) yet.
 
 ### Apply all states
 
 Once you have managed all the previous instructions, you should execute all states safely. Before applying all changes, you can run a test to understand all the potential changes.
+
+> _NOTE: **For macOS**, you might need to log in to the AppStore before running all states. Processes that install apps via CLI require this access. Only previously downloaded apps can be installed. Any other will cause an error while trying to install._
 
 ```bash
 # dry-run

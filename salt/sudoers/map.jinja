@@ -1,0 +1,21 @@
+{% from "personal/map.jinja" import account %}
+
+{% set sudoers = salt.grains.filter_by({
+
+  'default': { },
+
+  'Darwin': {
+    'user': 'root',
+    'group': 'wheel',
+    'contents': account.username + '  ALL=(ALL)  NOPASSWD:ALL',
+  },
+
+  'Linux': {
+    'user': 'root',
+    'group': 'root',
+    'contents': account.username + '  ALL=(ALL)  NOPASSWD:ALL',
+  },
+
+}, grain='kernel') %}
+
+{% do sudoers.update({ 'supported_kernel': sudoers.contents is defined }) %}

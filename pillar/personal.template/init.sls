@@ -15,12 +15,12 @@ personal:
       name: Ayrton Senna
       email: ayrtonsenna@f1.legends.com
       username: ayrtonsenna
-      group: ayrtonsenna
+      group: ayrtonsenna # or staff for macOS
       ssh_public_key: ssh-rsa ... ayrtonsenna
       ssh_private_key: |
         -----BEGIN RSA PRIVATE KEY-----
         ...
         -----END RSA PRIVATE KEY-----
 
-  license:
-    ubuntu_pro: my_token_here # https://ubuntu.com/pro/tutorial
+  ubuntu:
+    license: my_token_here # Ubuntu PRO - https://ubuntu.com/pro/tutorial

@@ -1,8 +1,8 @@
 base:
   '*':
     - salt.minion
-    - utils
     - system.os
+    - utils
     - ssh
     - git
     - fonts
@@ -13,7 +13,7 @@ base:
     - vagrant
     - eza
     - python
-    - zsh
+    - shell
 
   G@kernel:Linux:
     - gdm

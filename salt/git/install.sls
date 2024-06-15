@@ -1,7 +1,9 @@
-{% if salt.grains.get('os') == "Ubuntu" %}
+{% from "git/map.jinja" import git with context %}
+
+{% if git.supported_kernel %}
 
 git-install:
   pkg.latest:
-    - name: git-all
+    - name: {{ git.pkg }}
 
 {% endif %}

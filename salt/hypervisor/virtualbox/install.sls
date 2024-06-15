@@ -17,4 +17,11 @@ virtualbox-install-latest:
   pkg.latest:
     - name: virtualbox-7.0
 
+{% elif salt.grains.get('kernel') == "Darwin" %}
+
+# https://formulae.brew.sh/cask/virtualbox
+virtualbox-install:
+  pkg.installed:
+    - name: homebrew/cask/virtualbox
+
 {% endif %}

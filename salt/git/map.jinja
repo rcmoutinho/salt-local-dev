@@ -1,0 +1,38 @@
+{% from "personal/map.jinja" import account with context %}
+
+
+{# GIT #}
+{% set _git_by_kernel = salt['grains.filter_by']({
+
+  'default': { },
+
+  'Darwin': {
+    'pkg': 'git',
+  },
+
+  'Linux': {
+    'pkg': 'git-all',
+  },
+
+}, grain='kernel') %}
+
+
+{# EXTRA #}
+{% set _additional_data = {
+  'config': {
+    'file': {
+      'user': account.username,
+      'group': account.group,
+      'path': account.info.home + '/.config/git/config',
+    },
+    'content': {
+      'name': account.name,
+      'email': account.email,
+    }
+  },
+} %}
+
+
+{# EXPOSE #}
+{% set git = salt.slsutil.merge(_git_by_kernel, _additional_data) %}
+{% do git.update({ 'supported_kernel': git.pkg is defined }) %}
