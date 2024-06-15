@@ -41,13 +41,31 @@ macos:
     NSGlobalDomain:
       killall: Finder
       config:
-        AppleShowAllExtensions:
+        AppleShowAllExtensions: # Show all file extensions in the Finder
           type: -int
           value: 1
+        NSTableViewDefaultSizeMode: # Choose the size of Finder sidebar icons
+          type: -int
+          value: 1
+    # com.apple.universalaccess: # This command requires to grant full disk access to the terminal
+    #   killall: Finder
+    #   config:
+    #     showWindowTitlebarIcons: # Always show folder icon before title in the title bar
+    #       type: -int
+    #       value: 1
     com.apple.finder:
       killall: Finder
       config:
-        AppleShowAllFiles:
+        AppleShowAllFiles: # Show hidden files in the Finder (toggle the value using 'CMD+Shift+.')
+          type: -int
+          value: 1
+        ShowPathbar: # Show path bar in the bottom of the Finder windows
+          type: -int
+          value: 1
+        FXPreferredViewStyle: # Set the default view style for folders without custom setting
+          type: -string
+          value: Nlsv
+        FXRemoveOldTrashItems: # Remove items in the bin after 30 days
           type: -int
           value: 1
 
