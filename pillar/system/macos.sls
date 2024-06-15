@@ -26,6 +26,8 @@ macos:
       - 1295203466 # Microsoft Remote Desktop
 
   defaults:
+
+    #################### Dock
     com.apple.dock:
       killall: Dock
       config:
@@ -38,6 +40,8 @@ macos:
         show-recents:
           type: -int
           value: 0
+
+    #################### Finder
     NSGlobalDomain:
       killall: Finder
       config:
@@ -47,12 +51,20 @@ macos:
         NSTableViewDefaultSizeMode: # Choose the size of Finder sidebar icons
           type: -int
           value: 1
+
+        ##### Keyboard
+        # A restart of your Mac is required to apply these changes
+        com.apple.keyboard.fnState: # Allows you to change the behavior of the function keys
+          type: -int
+          value: 1 # F1, F2, etc. behave as standard function keys. Press the fn key to use the special features printed on the key.
+
     # com.apple.universalaccess: # This command requires to grant full disk access to the terminal
     #   killall: Finder
     #   config:
     #     showWindowTitlebarIcons: # Always show folder icon before title in the title bar
     #       type: -int
     #       value: 1
+
     com.apple.finder:
       killall: Finder
       config:
@@ -68,6 +80,15 @@ macos:
         FXRemoveOldTrashItems: # Remove items in the bin after 30 days
           type: -int
           value: 1
+
+    #################### Keyboard
+    # A restart of your Mac is required to apply these changes
+    com.apple.HIToolbox:
+      config:
+        AppleFnUsageType: # Choose what happens when you press the Fn or 🌐︎ key on the keyboard
+          type: -int
+          value: 2 # Opens the Character Viewer for entering emoji, symbols, and more.
+
 
   dock:
     remove_default:
