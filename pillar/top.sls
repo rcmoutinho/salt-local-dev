@@ -3,6 +3,7 @@ base:
     - personal
     - python
     - vscode
+    - vagrant
     - zsh
 
   G@kernel:Linux:

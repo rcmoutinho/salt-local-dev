@@ -1,0 +1,17 @@
+{% from "personal/map.jinja" import account with context %}
+
+
+{# VAGRANT #}
+{% set _vagrant_pillar = salt.pillar.get('vagrant', {}) %}
+
+
+{# EXTRA #}
+{% set _additional_data = {
+  'user': account.username,
+
+  'supported_kernel': salt.grains.get('os') == "Ubuntu" or salt.grains.get('kernel') == "Darwin",
+} %}
+
+
+{# EXPOSE #}
+{% set vagrant = salt.slsutil.merge_all([_vagrant_pillar, _additional_data]) %}
