@@ -61,7 +61,7 @@ Vagrant.configure("2") do |config|
       sudo systemctl status salt-minion
 
       echo "#################### DONE"
-      sudo shutdown --reboot +1m “Initial setup is now completed. The VM will reboot in 1 minute!”
+      sudo shutdown --reboot +1 “Initial setup is now completed. The VM will reboot in 1 minute!”
     SHELL
   end
 end
