@@ -1,11 +1,5 @@
 {% if salt.grains.get('os') == "Ubuntu" %}
 
-virtualbox-dependencies:
-  pkg.latest:
-    - pkgs:
-      - linux-headers-{{ salt.grains.get('kernelrelease') }}
-      - dkms
-
 virtualbox-add-apt-gpg-key: # favor gpg considering apt-key is depricated
   cmd.run:
     - name: curl -sS https://www.virtualbox.org/download/oracle_vbox_2016.asc | sudo gpg --yes --dearmor --output /usr/share/keyrings/oracle-virtualbox-2016.gpg
@@ -21,7 +15,9 @@ virtualbox-add-apt-repository:
 
 virtualbox-install-latest:
   pkg.latest:
-    - name: virtualbox-7.0
+    - pkgs:
+      - virtualbox-6.1
+      - virtualbox-dkms
 
 {% elif salt.grains.get('kernel') == "Darwin" %}
 
