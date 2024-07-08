@@ -59,7 +59,10 @@ Vagrant.configure("2") do |config|
 
       # For Debian distros, like Ubuntu, we will need to manually stop the service
       sudo systemctl stop salt-minion
+      sudo systemctl disable salt-minion
       sudo systemctl status salt-minion
+
+      sudo salt-call --local --file-root /opt/salt-local-dev/salt --pillar-root /opt/salt-local-dev/pillar state.sls salt.minion
 
       echo "#################### DONE"
       sudo shutdown --reboot +1 “Initial setup is now completed. The VM will reboot in 1 minute!”

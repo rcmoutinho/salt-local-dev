@@ -146,6 +146,9 @@ The easiest way to start is by installing salt via [bootstrap script](https://gi
 
   # check if the service is stopped
   sudo systemctl status salt-minion
+
+  # ensure the service will not start on the next reboot
+  sudo systemctl disable salt-minion
   ```
 </details>
 
