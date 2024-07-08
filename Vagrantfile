@@ -24,7 +24,8 @@ Vagrant.configure("2") do |config|
   config.vm.define "ubuntu-gui" do |ubuntu|
     ubuntu.vm.box = "ubuntu/jammy64"
     ubuntu.vm.box_version = "20240614.0.0"
-    ubuntu.vm.synced_folder ".", "/opt/salt-local-dev", automount: true
+    ubuntu.vm.synced_folder ".", "/opt/salt-local-dev",
+      type: "rsync", rsync__auto: true, rsync__exclude: ['./Saltfile']
 
     ubuntu.vm.provider :virtualbox do |vb|
       vb.name = "ubuntu-gui"
