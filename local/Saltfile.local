@@ -1,0 +1,4 @@
+salt-call:
+  local: True
+  log_level: warning
+  state_output: changes

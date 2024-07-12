@@ -6,6 +6,7 @@ Vagrant.configure("2") do |config|
   # config.vm.provider "virtualbox"
   config.vm.synced_folder ".", "/vagrant", disabled: true
 
+  ##### Default VM for general Linux tests
   config.vm.define "ubuntu" do |ubuntu|
     ubuntu.vm.box = "generic/ubuntu2204"
     ubuntu.vm.box_version = "4.3.12"
@@ -21,11 +22,14 @@ Vagrant.configure("2") do |config|
     SHELL
   end
 
+  ##### Linux VM with GUI
   config.vm.define "ubuntu-gui" do |ubuntu|
     ubuntu.vm.box = "ubuntu/jammy64"
     ubuntu.vm.box_version = "20240614.0.0"
-    ubuntu.vm.synced_folder ".", "/opt/salt-local-dev",
-      type: "rsync", rsync__auto: true, rsync__exclude: ['./Saltfile']
+
+    # NOTE: comment this line in case you want to install via GitHub later
+    ubuntu.vm.synced_folder ".", "/opt/salt-local-dev", automount: false,
+      type: "rsync", rsync__auto: true, rsync__exclude: [ 'Saltfile', 'pillar/personal' ]
 
     ubuntu.vm.provider :virtualbox do |vb|
       vb.name = "ubuntu-gui"
@@ -46,7 +50,7 @@ Vagrant.configure("2") do |config|
       echo "#################### Ubuntu GUI"
       sudo apt-get install -y ubuntu-desktop
 
-      echo "#################### SALT"
+      echo "#################### Salt install"
       wget -O /tmp/bootstrap-salt.sh https://bootstrap.saltproject.io
       test $(sha256sum /tmp/bootstrap-salt.sh | awk '{print $1}') \
       = $(wget -qO- https://bootstrap.saltproject.io/sha256) \
@@ -62,10 +66,20 @@ Vagrant.configure("2") do |config|
       sudo systemctl disable salt-minion
       sudo systemctl status salt-minion
 
-      sudo salt-call --local --file-root /opt/salt-local-dev/salt --pillar-root /opt/salt-local-dev/pillar state.sls salt.minion
+      # echo "#################### Configure salt-local-dev project via GitHub"
+      # git clone https://github.com/rcmoutinho/salt-local-dev.git /opt/salt-local-dev
 
       echo "#################### DONE"
-      sudo shutdown --reboot +1 “Initial setup is now completed. The VM will reboot in 1 minute!”
+      sudo shutdown --reboot +2 “Initial setup is now completed. The VM will reboot in 2 minutes!”
+    SHELL
+
+    # local files based on the VM needs
+    ubuntu.vm.provision "file", source: "./local/Saltfile.local", destination: "/opt/salt-local-dev/Saltfile"
+    ubuntu.vm.provision "file", source: "./local/pillar-personal-init.sls", destination: "/opt/salt-local-dev/pillar/personal/init.sls"
+
+    ubuntu.vm.provision "shell", inline: <<-SHELL
+      echo "#################### Applying initial Salt minion config"
+      sudo salt-call --local --file-root /opt/salt-local-dev/salt --pillar-root /opt/salt-local-dev/pillar state.sls salt.minion
     SHELL
   end
 end
