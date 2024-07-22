@@ -15,7 +15,9 @@ virtualbox-add-apt-repository:
 
 virtualbox-install-latest:
   pkg.latest:
-    - name: virtualbox-7.0
+    - pkgs:
+      - virtualbox-6.1
+      - virtualbox-dkms
 
 {% elif salt.grains.get('kernel') == "Darwin" %}
 

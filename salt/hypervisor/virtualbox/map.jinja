@@ -1,0 +1,23 @@
+{% from "personal/map.jinja" import account with context %}
+
+
+{# VIRTUALBOX #}
+{% set _virtualbox_by_kernel = salt['grains.filter_by']({
+
+  'default': { },
+
+  'Darwin': { },
+
+  'Linux': { },
+
+}, grain='kernel') %}
+
+
+{# EXTRA #}
+{% set _additional_data = {
+  'addusers': [ account.username ],
+} %}
+
+
+{# EXPOSE #}
+{% set virtualbox = salt.slsutil.merge(_virtualbox_by_kernel, _additional_data) %}

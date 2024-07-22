@@ -5,11 +5,11 @@
 
 vscode-install:
   cmd.run:
-    - name: snap install --classic code
+    - name: sudo snap install --classic code
     - runas: {{ vscode.user }}
     - unless:
       - fun: cmd.run
-        cmd: snap list code
+        cmd: sudo snap list code
         runas: {{ vscode.user }}
         output_loglevel: quiet # prevent printing expected log errors
 
