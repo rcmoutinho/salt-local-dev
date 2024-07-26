@@ -5,6 +5,7 @@ base:
     - vscode
     - vagrant
     - zsh
+    - perforce
 
   G@kernel:Linux:
     - fonts.Linux

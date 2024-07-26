@@ -1,0 +1,33 @@
+{# PERFORCE #}
+{% set _perforce_pillar = salt.pillar.get('perforce', {}) %}
+{% set _perforce_by_kernel = salt['grains.filter_by']({
+
+  'default': { },
+
+  'Darwin': {
+    'p4v': {
+      'pkg': 'homebrew/cask/p4v',
+    },
+  },
+
+  'Linux': {
+    'p4v': {
+      'path': '/opt/perforce-p4v',
+      'source': 'https://www.perforce.com/downloads/perforce/r' ~ _perforce_pillar.p4v.short_version ~ '/bin.linux26x86_64/p4v.tgz',
+      'symlinks': {
+        '/usr/bin/p4admin' : '/opt/perforce-p4v/' ~ _perforce_pillar.p4v.full_version ~ '/bin/p4admin',
+        '/usr/bin/p4merge' : '/opt/perforce-p4v/' ~ _perforce_pillar.p4v.full_version ~ '/bin/p4merge',
+        '/usr/bin/p4v'     : '/opt/perforce-p4v/' ~ _perforce_pillar.p4v.full_version ~ '/bin/p4v',
+        '/usr/bin/p4vc'    : '/opt/perforce-p4v/' ~ _perforce_pillar.p4v.full_version ~ '/bin/p4vc',
+      },
+    },
+  },
+
+}, grain='kernel') %}
+
+
+{# EXPOSE #}
+{% set perforce = salt.slsutil.merge_all([_perforce_pillar, _perforce_by_kernel]) %}
+{% do perforce.update({ 'supported_kernel': perforce.p4v is defined }) %}
+
+{% set update = salt.pillar.get('update', false) %}
