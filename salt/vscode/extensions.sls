@@ -11,11 +11,11 @@ include:
 
 vscode-install-{{ extension }}:
   cmd.run:
-    - name: /opt/homebrew/bin/code --install-extension {{ extension }}
+    - name: {{ vscode.bin_path }} --install-extension {{ extension }}
     - runas: {{ vscode.user }}
     - unless:
       - fun: cmd.run
-        cmd: /opt/homebrew/bin/code --list-extensions | grep {{ extension }}
+        cmd: {{ vscode.bin_path }} --list-extensions | grep {{ extension }}
         runas: {{ vscode.user }}
         python_shell: True
         output_loglevel: quiet # prevent printing expected log errors
