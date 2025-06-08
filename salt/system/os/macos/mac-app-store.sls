@@ -11,11 +11,11 @@ mac-app-store-cli-install:
 
 mac-app-store-install-{{ app }}:
   cmd.run:
-    - name: mas install {{ app }}
+    - name: /opt/homebrew/bin/mas install {{ app }}
     - runas: {{ macos.runas }}
     - unless:
       - fun: cmd.run
-        cmd: mas list | grep {{ app }}
+        cmd: /opt/homebrew/bin/mas list | grep {{ app }}
         runas: {{ macos.runas }}
         python_shell: True
         output_loglevel: quiet # prevent printing expected log errors

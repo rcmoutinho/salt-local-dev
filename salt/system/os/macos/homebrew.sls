@@ -11,7 +11,7 @@ homebrew-install: # https://github.com/Homebrew/install
     - runas: {{ account.username }}
     - unless:
       - fun: cmd.run
-        cmd: brew --version
+        cmd: /opt/homebrew/bin/brew --version
         output_loglevel: quiet # prevent printing expected log errors
 
 {% endif %}

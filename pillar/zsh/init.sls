@@ -9,6 +9,7 @@ zsh:
       # - python # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/python
       - salt # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/salt
       - vagrant # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/vagrant
+      - brew # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/brew
 
     custom:
       - name: zsh-autosuggestions
