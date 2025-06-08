@@ -11,11 +11,11 @@ dockutil-cli-install:
 
 dockutil-remove-{{ app }}:
   cmd.run:
-    - name: dockutil --remove {{ app }} --no-restart
+    - name: /opt/homebrew/bin/dockutil --remove {{ app }} --no-restart
     - runas: {{ macos.runas }}
     - onlyif:
       - fun: cmd.run
-        cmd: dockutil --find {{ app }}
+        cmd: /opt/homebrew/bin/dockutil --find {{ app }}
         runas: {{ macos.runas }}
         output_loglevel: quiet # prevent printing expected log errors
     - require:
@@ -36,12 +36,12 @@ dockutil-define-apps-{{ app }}:
   cmd.run:
     # First, try to add. If it exists, but in the wrong position, move it to the desired place.
     - name: |
-        dockutil --add "{{ app }}" --position {{ loop.index }} --section apps || \
-        dockutil --move "{{ app }}" --position {{ loop.index }} --section apps
+        /opt/homebrew/bin/dockutil --add "{{ app }}" --position {{ loop.index }} --section apps || \
+        /opt/homebrew/bin/dockutil --move "{{ app }}" --position {{ loop.index }} --section apps
     - runas: {{ macos.runas }}
     - unless:
       - fun: cmd.run
-        cmd: dockutil --find "{{ app }}" | grep 'at slot {{ loop.index }}'
+        cmd: /opt/homebrew/bin/dockutil --find "{{ app }}" | grep 'at slot {{ loop.index }}'
         runas: {{ macos.runas }}
         python_shell: True
         output_loglevel: quiet # prevent printing expected log errors
@@ -57,12 +57,12 @@ dockutil-define-others-{{ item }}:
   cmd.run:
     # First, try to add. If it exists, but in the wrong position, move it to the desired place.
     - name: |
-        dockutil --add "{{ item }}" --position {{ loop.index }} --section others || \
-        dockutil --move "{{ item }}" --position {{ loop.index }} --section others
+        /opt/homebrew/bin/dockutil --add "{{ item }}" --position {{ loop.index }} --section others || \
+        /opt/homebrew/bin/dockutil --move "{{ item }}" --position {{ loop.index }} --section others
     - runas: {{ macos.runas }}
     - unless:
       - fun: cmd.run
-        cmd: dockutil --find "{{ item }}" | grep 'at slot {{ loop.index }}'
+        cmd: /opt/homebrew/bin/dockutil --find "{{ item }}" | grep 'at slot {{ loop.index }}'
         runas: {{ macos.runas }}
         python_shell: True
         output_loglevel: quiet # prevent printing expected log errors
@@ -73,14 +73,14 @@ dockutil-define-others-{{ item }}:
 
 dockutil-remove-all-spacer-apps:
   cmd.run:
-    - name: dockutil --remove spacer-tiles --section apps
+    - name: /opt/homebrew/bin/dockutil --remove spacer-tiles --section apps
     - runas: {{ macos.runas }}
     - require:
       - pkg: dockutil-cli-install
 
 dockutil-remove-all-spacer-others:
   cmd.run:
-    - name: dockutil --remove spacer-tiles --section others
+    - name: /opt/homebrew/bin/dockutil --remove spacer-tiles --section others
     - runas: {{ macos.runas }}
     - require:
       - pkg: dockutil-cli-install
@@ -90,7 +90,7 @@ dockutil-remove-all-spacer-others:
 dockutil-define-spacer-after-{{ item.after }}:
   cmd.run:
     - name: |
-        dockutil --add '' --type {{ item.type | default(macos.dock.spacer.default.type) }} \
+        /opt/homebrew/bin/dockutil --add '' --type {{ item.type | default(macos.dock.spacer.default.type) }} \
         --section {{ item.section | default(macos.dock.spacer.default.section) }} \
         --after "{{ item.after }}"
     - runas: {{ macos.runas }}

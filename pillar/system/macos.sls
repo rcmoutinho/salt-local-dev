@@ -132,10 +132,14 @@ macos:
         - /System/Applications/Calendar.app
         - /System/Applications/Reminders.app
         - /System/Applications/Notes.app
-        - /System/Applications/System Preferences.app
+        - /Applications/Notion.app
+        - /Applications/WhatsApp.app
+        - /System/Applications/System Settings.app
         - /System/Applications/Utilities/Terminal.app
         - /Applications/Visual Studio Code.app
-        - /Applications/Google Chrome.app
+        - /Applications/Brave Browser.app
+        - /Applications/Spotify.app
+        - /Applications/Microsoft Excel.app
       others:
         - ~/Downloads
 
@@ -144,5 +148,6 @@ macos:
         type: small-spacer # spacer|small-spacer|flex-spacer
         section: apps # apps | others
       list:
-        - after: /System/Applications/System Preferences.app
+        - after: /System/Applications/System Settings.app
         - after: /Applications/Visual Studio Code.app
+        - after: /Applications/Microsoft Excel.app
