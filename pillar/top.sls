@@ -13,3 +13,4 @@ base:
   G@kernel:Darwin:
     - system.macos
     - fonts.Darwin
+    - zsh.Darwin
