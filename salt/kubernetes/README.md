@@ -7,6 +7,15 @@
 
 ### macOS
 
+Using Docker:
+
+```bash
+## https://minikube.sigs.k8s.io/docs/drivers/docker/#Standard%20Docker
+minikube start --driver=docker
+```
+
+Using QEMU:
+
 ```bash
 ## start network for QEMU driver
 ## https://minikube.sigs.k8s.io/docs/drivers/qemu/#socket_vmnet
