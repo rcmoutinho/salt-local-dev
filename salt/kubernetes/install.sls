@@ -5,4 +5,8 @@ minikube-install:
   pkg.installed:
     - name: minikube
 
+minikube-qemu-socket-vmnet-install:
+  pkg.installed:
+    - name: socket_vmnet
+
 {% endif %}
