@@ -46,6 +46,14 @@ ssh-public-key-symlink:
     - user: {{ ssh.user }}
     - group: {{ ssh.group }}
     - mode: 0644
+
+ssh-authorized-keys:
+  file.managed:
+    - name: {{ ssh.directory }}/authorized_keys
+    - user: {{ ssh.user }}
+    - group: {{ ssh.group }}
+    - mode: 0600
+    - contents: {{ ssh.public_key.content }}
   {% else %}
 ssh-public-key-not-defined:
   test.succeed_without_changes
