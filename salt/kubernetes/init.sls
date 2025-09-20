@@ -1,4 +1,4 @@
 include:
-  - hypervisor/qemu
+  - hypervisor
   - .install
   - .tools
