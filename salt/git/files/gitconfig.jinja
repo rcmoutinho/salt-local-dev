@@ -29,6 +29,10 @@
   master = checkout master
   s = status -s
   spull = !git stash && git pull && git stash pop
+  mspp = !git master && git pull && git remote prune origin
+  mnpp = !git main && git pull && git remote prune origin
+  pso = push-set-to-origin
+  push-set-to-origin = push --set-upstream origin HEAD
 
 [init]
   defaultBranch = main
